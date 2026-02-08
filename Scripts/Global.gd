@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var score = 0
 var combo = 0
 var great = 0
@@ -39,3 +38,7 @@ func set_score(new):
 	else:
 		grade = "F"
 		
+
+
+func _on_Conductor_beat(position: Variant) -> void:
+	pass # Replace with function body.

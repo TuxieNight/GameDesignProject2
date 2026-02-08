@@ -1,63 +1,47 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene format=3 uid="uid://d1aom4j4o80rf"]
 
-[ext_resource path="res://Scenes/ArrowButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Frames/arrow_left_frames.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://Frames/arrow_right_frames.tres" type="SpriteFrames" id=3]
-[ext_resource path="res://Sprites/game/road/road.png" type="Texture" id=4]
-[ext_resource path="res://Sounds/song.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Scripts/Game.gd" type="Script" id=6]
-[ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=8]
+[ext_resource type="PackedScene" path="res://Scenes/ArrowButton.tscn" id="1"]
+[ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="2"]
+[ext_resource type="SpriteFrames" path="res://Frames/arrow_right_frames.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://c7lyjnchjuc35" path="res://Sprites/game/road/road.png" id="4"]
+[ext_resource type="SpriteFrames" path="res://Frames/arrow_up_frames.tres" id="4_2irst"]
+[ext_resource type="AudioStream" uid="uid://bth1k51g43nor" path="res://Sounds/song.ogg" id="5"]
+[ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
 
-[node name="Game" type="Node2D"]
-script = ExtResource( 6 )
+[node name="Game" type="Node2D" unique_id=897590322]
+script = ExtResource("6")
 
-[node name="road" type="Sprite" parent="."]
-position = Vector2( 100, 0 )
-texture = ExtResource( 4 )
+[node name="road" type="Sprite2D" parent="." unique_id=1881875725]
+position = Vector2(100, 0)
+texture = ExtResource("4")
 centered = false
 
-[node name="ArrowUp" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 164 )
+[node name="ArrowUp" parent="." unique_id=37333427 instance=ExtResource("1")]
+position = Vector2(160, 164)
+sprite_frames = ExtResource("4_2irst")
 input = "up"
 
-[node name="ArrowLeft" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 164 )
-frames = ExtResource( 2 )
+[node name="ArrowLeft" parent="." unique_id=1073547046 instance=ExtResource("1")]
+position = Vector2(120, 164)
+sprite_frames = ExtResource("2")
 input = "left"
 
-[node name="ArrowButton" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 164 )
-frames = ExtResource( 3 )
+[node name="ArrowButton" parent="." unique_id=594170311 instance=ExtResource("1")]
+position = Vector2(200, 164)
+sprite_frames = ExtResource("3")
 input = "right"
 
-[node name="Label" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 44.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
+[node name="Label" type="Label" parent="." unique_id=2052336268]
 text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Combo" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 20.0
-margin_right = 96.0
-margin_bottom = 34.0
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Combo" type="Label" parent="." unique_id=1368531858]
+horizontal_alignment = 1
 
-[node name="Conductor" parent="." instance=ExtResource( 8 )]
-stream = ExtResource( 5 )
+[node name="Conductor" parent="." unique_id=237339114 instance=ExtResource("8")]
+stream = ExtResource("5")
 volume_db = -15.0
 bpm = 115
+
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]
