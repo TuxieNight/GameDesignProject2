@@ -20,7 +20,6 @@ signal measure(position)
 
 func _ready():
 	sec_per_beat = 60.0 / bpm
-	print("Conductor running")
 
 
 
@@ -33,7 +32,6 @@ func _physics_process(_delta):
 
 
 func _report_beat():
-	print("Beat:", song_position_in_beats, " Measure:", current_measure)
 	if last_reported_beat < song_position_in_beats:
 		if current_measure > measures:
 			current_measure = 1

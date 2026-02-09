@@ -1,8 +1,5 @@
 extends Node2D
 
-func _ready():
-	print("MENU LOADED")
-
 func _on_Start_Button_button_down():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 
 								linear_to_db($HSlider.value))

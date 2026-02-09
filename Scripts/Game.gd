@@ -28,8 +28,6 @@ var instance
 
 
 func _ready():
-	print("Game ready")
-	print("Conductor node:", $Conductor)
 	randomize()
 	$Conductor.play_with_beat_offset(8)
 
@@ -50,7 +48,6 @@ func _on_Conductor_measure(position):
 		_spawn_notes(spawn_4_beat)
 
 func _on_Conductor_beat(position):
-	print("GAME RECEIVED BEAT:", position)
 	song_position_in_beats = position
 	if song_position_in_beats > 36:
 		spawn_1_beat = 1

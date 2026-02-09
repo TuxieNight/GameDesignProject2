@@ -1,3 +1,4 @@
 res://Scenes/Game.tscn
+res://Scripts/Conductor.gd
 res://Scripts/Game.gd
-res://Scripts/End.gd
+res://Scripts/Menu.gd
