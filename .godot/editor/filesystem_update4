@@ -2,3 +2,6 @@ res://Scenes/Game.tscn
 res://Scripts/Conductor.gd
 res://Scripts/Game.gd
 res://Scripts/Menu.gd
+res://Scenes/Menu.tscn
+res://Charts/song1.json
+res://Scripts/ChartLoader.gd
