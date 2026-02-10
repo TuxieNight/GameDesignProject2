@@ -2,7 +2,7 @@ extends Area2D
 
 # --- HORIZONTAL NOTE HIGHWAY ---
 const TARGET_X := 160
-const SPAWN_X := 600
+const SPAWN_X := 400
 const DIST_TO_TARGET := SPAWN_X - TARGET_X
 
 # --- TREBLE STAFF LANES (adjust Y values to match your scene) ---
@@ -16,6 +16,13 @@ const STAFF_LANES := {
 	"D5": 120,
 	"E5": 100,
 	"F5":  80
+}
+const DURATION_TO_FRAME := {
+	1.0: 0,   # quarter
+	2.0: 1,   # half
+	4.0: 2,   # whole
+	0.5: 3,   # eighth
+	0.25: 4   # sixteenth
 }
 
 var speed := 0.0
@@ -47,21 +54,26 @@ func _physics_process(delta):
 			finish_hold()
 
 
-func initialize(note_name: String, duration_beats, sec_per_beat, spawn_time, conductor_ref):
+func initialize(note_name: String, duration_beats: float, sec_per_beat, spawn_time, conductor_ref):
 	conductor = conductor_ref
 
+	# HOLD SETUP
 	hold_duration_beats = duration_beats
-	is_hold = duration_beats > 0.0
+	is_hold = duration_beats > 1.0   # or however you define holds
 	if is_hold:
 		hold_end_time = spawn_time + duration_beats * sec_per_beat
 
-	# --- STAFF POSITION BY NOTE NAME ---
-	if STAFF_LANES.has(note_name):
-		var y = STAFF_LANES[note_name]
-		position = Vector2(SPAWN_X, y)
+	# --- SET SPRITE BASED ON DURATION ---
+	if DURATION_TO_FRAME.has(duration_beats):
+		$AnimatedSprite.frame = DURATION_TO_FRAME[duration_beats]
 	else:
-		printerr("Invalid note name: ", note_name)
-		return
+		printerr("Unknown duration: ", duration_beats)
+
+	# --- SET POSITION BASED ON NOTE NAME ---
+	if STAFF_LANES.has(note_name):
+		position = Vector2(SPAWN_X, STAFF_LANES[note_name])
+	else:
+		printerr("Unknown note name: ", note_name)
 
 	speed = DIST_TO_TARGET / 2.0
 

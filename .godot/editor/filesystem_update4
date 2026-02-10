@@ -8,3 +8,4 @@ res://Scripts/Note.gd
 res://Scenes/ArrowButton.tscn
 res://Scripts/ArrowButton.gd
 res://Scripts/Game.gd
+res://Scripts/ChartLoader.gd
