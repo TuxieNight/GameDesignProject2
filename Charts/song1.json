@@ -2,10 +2,19 @@
   "bpm": 115,
   "offset": 0.0,
   "notes": [
-	{ "beat": 1.0, "lane": 0, "duration": 1.0 },
-	{ "beat": 2.0, "lane": 1, "duration": 1.0 },
-	{ "beat": 2.0, "lane": 2, "duration": 1.0 },
-	{ "beat": 3.0, "lane": 2, "duration": 1.0 },
-	{ "beat": 4.0, "lane": 2, "duration": 1.0 }
+	{ "beat": 1.0, "note": "E4", "duration": 1.0 },
+	{ "beat": 2.0, "note": "G4", "duration": 1.0 },
+	{ "beat": 2.0, "note": "B4", "duration": 1.0 },
+	{ "beat": 3.0, "note": "D5", "duration": 1.0 },
+	{ "beat": 4.0, "note": "F5", "duration": 1.0 },
+	{ "beat": 5.0, "note": "E4", "duration": 1.0 },
+	{ "beat": 5.0, "note": "F4", "duration": 1.0 },
+	{ "beat": 5.0, "note": "G4", "duration": 1.0 },
+	{ "beat": 5.0, "note": "A4", "duration": 1.0 },
+	{ "beat": 5.0, "note": "B4", "duration": 1.0 },
+	{ "beat": 5.0, "note": "C5", "duration": 1.0 },
+	{ "beat": 5.0, "note": "D5", "duration": 1.0 },
+	{ "beat": 5.0, "note": "E5", "duration": 1.0 },
+	{ "beat": 5.0, "note": "F5", "duration": 1.0 },
   ]
 }

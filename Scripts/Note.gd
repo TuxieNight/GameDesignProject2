@@ -1,18 +1,22 @@
 extends Area2D
 
 # --- HORIZONTAL NOTE HIGHWAY ---
-const TARGET_X := 160          # receptor X position
-const SPAWN_X := 400           # off-screen to the right
+const TARGET_X := 160
+const SPAWN_X := 600
 const DIST_TO_TARGET := SPAWN_X - TARGET_X
 
-# Adjust these Y values to match your lane layout
-const TOP_LANE_Y := 120
-const MID_LANE_Y := 160
-const BOT_LANE_Y := 200
-
-const TOP_LANE_SPAWN    := Vector2(SPAWN_X, TOP_LANE_Y)
-const MIDDLE_LANE_SPAWN := Vector2(SPAWN_X, MID_LANE_Y)
-const BOTTOM_LANE_SPAWN := Vector2(SPAWN_X, BOT_LANE_Y)
+# --- TREBLE STAFF LANES (adjust Y values to match your scene) ---
+const STAFF_LANES := {
+	"E4": 240,
+	"F4": 220,
+	"G4": 200,
+	"A4": 180,
+	"B4": 160,
+	"C5": 140,
+	"D5": 120,
+	"E5": 100,
+	"F5":  80
+}
 
 var speed := 0.0
 var hit := false
@@ -30,7 +34,6 @@ var conductor
 
 
 func _physics_process(delta):
-	# --- MOVEMENT ---
 	if !hit:
 		position.x -= speed * delta
 		if position.x < TARGET_X:
@@ -39,37 +42,27 @@ func _physics_process(delta):
 	else:
 		$Node2D.position.x -= speed * delta
 
-	# --- HOLD COMPLETION CHECK ---
 	if is_hold and is_holding:
 		if conductor.song_position >= hold_end_time - hold_release_window and !eval_hold:
 			finish_hold()
 
 
-func initialize(lane, duration_beats, sec_per_beat, spawn_time, conductor_ref):
+func initialize(note_name: String, duration_beats, sec_per_beat, spawn_time, conductor_ref):
 	conductor = conductor_ref
 
-	# HOLD SETUP
 	hold_duration_beats = duration_beats
 	is_hold = duration_beats > 0.0
 	if is_hold:
 		hold_end_time = spawn_time + duration_beats * sec_per_beat
 
-	# --- SPAWN POSITION ---
-	match lane:
-		0:
-			$AnimatedSprite.frame = 0
-			position = TOP_LANE_SPAWN
-		1:
-			$AnimatedSprite.frame = 1
-			position = MIDDLE_LANE_SPAWN
-		2:
-			$AnimatedSprite.frame = 2
-			position = BOTTOM_LANE_SPAWN
-		_:
-			printerr("Invalid lane: ", lane)
-			return
+	# --- STAFF POSITION BY NOTE NAME ---
+	if STAFF_LANES.has(note_name):
+		var y = STAFF_LANES[note_name]
+		position = Vector2(SPAWN_X, y)
+	else:
+		printerr("Invalid note name: ", note_name)
+		return
 
-	# --- SPEED ---
 	speed = DIST_TO_TARGET / 2.0
 
 
@@ -88,12 +81,10 @@ func finish_hold():
 
 
 func release_hold():
-	# Released close enough → success
 	if conductor.song_position >= hold_end_time - hold_release_window:
 		finish_hold()
 		return
 
-	# Released too early → MISS
 	show_label("MISS", Color("ff0000"))
 	destroy(0)
 
@@ -105,8 +96,10 @@ func show_label(text, color):
 	$AnimatedSprite.visible = false
 	$CPUParticles2D.emitting = true
 
+
 func register_initial_hit(score):
 	initial_hit_score = score
+
 
 func destroy(score):
 	$CPUParticles2D.emitting = true
