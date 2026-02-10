@@ -5,3 +5,6 @@ res://Scripts/Menu.gd
 res://Scenes/Menu.tscn
 res://Charts/song1.json
 res://Scripts/ChartLoader.gd
+res://Scripts/Note.gd
+res://Scripts/ArrowButton.gd
+res://Scenes/Note.tscn

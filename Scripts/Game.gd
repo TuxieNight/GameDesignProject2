@@ -57,9 +57,17 @@ func _physics_process(delta):
 		next_note = chart.get_next_note()
 
 func _spawn_chart_note(lane):
+	var duration = next_note.get("duration", 0.0)
 	var instance = note.instantiate()
-	instance.initialize(lane)
+	instance.initialize(
+		lane,
+		duration,
+		sec_per_beat,
+		$Conductor.song_position,
+		$Conductor
+	)
 	add_child(instance)
+
 
 func increment_score(by):
 	if by > 0:

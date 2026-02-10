@@ -1,55 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene format=3 uid="uid://cnb2nbepksohy"]
 
-[ext_resource path="res://Frames/note_frames.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://Sprites/game/particles/star.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Scripts/Note.gd" type="Script" id=4]
+[ext_resource type="SpriteFrames" path="res://Frames/note_frames.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://cevc66xycq4xk" path="res://Sprites/game/particles/star.png" id="2"]
+[ext_resource type="Script" uid="uid://cu10yihjdw3lr" path="res://Scripts/Note.gd" id="4"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 4 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 8)
 
-[node name="Note" type="Area2D" groups=[
-"note",
-]]
-script = ExtResource( 4 )
+[node name="Note" type="Area2D" unique_id=974388935 groups=["note"]]
+script = ExtResource("4")
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = ExtResource( 1 )
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=857260906]
+sprite_frames = ExtResource("1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98401822]
+shape = SubResource("1")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=490015981]
 emitting = false
 amount = 16
+texture = ExtResource("2")
 lifetime = 0.3
 one_shot = true
 explosiveness = 0.8
-texture = ExtResource( 2 )
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 100.0
-linear_accel = -100.0
+gravity = Vector2(0, 0)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=895326995]
 wait_time = 0.3
 one_shot = true
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=116613819]
 
-[node name="Label" type="Label" parent="Node2D"]
+[node name="Label" type="Label" parent="Node2D" unique_id=1583767692]
+anchors_preset = -1
 anchor_right = 0.046
-margin_left = -20.0
-margin_top = -8.0
-margin_right = 20.0
-margin_bottom = 6.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
