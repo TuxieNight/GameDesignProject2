@@ -52,7 +52,7 @@ func _physics_process(delta):
 	var note_time = next_note["beat"] * sec_per_beat + chart.offset
 
 	if song_time >= note_time:
-		_spawn_chart_note(next_note["lane"])
+		_spawn_chart_note(int(next_note["lane"]))
 		chart.advance()
 		next_note = chart.get_next_note()
 

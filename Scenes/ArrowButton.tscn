@@ -1,40 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene format=3 uid="uid://bhyghxnnjv5j3"]
 
-[ext_resource path="res://Frames/arrow_up_frames.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://Scripts/ArrowButton.gd" type="Script" id=2]
+[ext_resource type="SpriteFrames" path="res://Frames/arrow_up_frames.tres" id="1"]
+[ext_resource type="Script" uid="uid://3hh0jd1oq6qa" path="res://Scripts/ArrowButton.gd" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 2 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 4)
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4, 8 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(8, 16)
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4, 12 )
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(8, 24)
 
-[node name="ArrowButton" type="AnimatedSprite"]
-frames = ExtResource( 1 )
-script = ExtResource( 2 )
+[node name="ArrowButton" type="AnimatedSprite2D" unique_id=403500746]
+sprite_frames = ExtResource("1")
+script = ExtResource("2")
 
-[node name="PerfectArea" type="Area2D" parent="."]
+[node name="PerfectArea" type="Area2D" parent="." unique_id=1818611945]
+rotation = 1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea"]
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea" unique_id=1298625125]
+shape = SubResource("1")
 
-[node name="GoodArea" type="Area2D" parent="."]
+[node name="GoodArea" type="Area2D" parent="." unique_id=456360350]
+rotation = 1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodArea"]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodArea" unique_id=122821366]
+shape = SubResource("2")
 
-[node name="OkayArea" type="Area2D" parent="."]
-visible = false
+[node name="OkayArea" type="Area2D" parent="." unique_id=1835557218]
+rotation = 1.5707964
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea"]
-shape = SubResource( 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea" unique_id=121746380]
+shape = SubResource("3")
 
-[node name="PushTimer" type="Timer" parent="."]
+[node name="PushTimer" type="Timer" parent="." unique_id=1978947182]
 wait_time = 0.05
 one_shot = true
+
 [connection signal="area_entered" from="PerfectArea" to="." method="_on_PerfectArea_area_entered"]
 [connection signal="area_exited" from="PerfectArea" to="." method="_on_PerfectArea_area_exited"]
 [connection signal="area_entered" from="GoodArea" to="." method="_on_GoodArea_area_entered"]

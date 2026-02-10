@@ -1,12 +1,11 @@
 extends AnimatedSprite2D
 
-var perfect = false
-var good = false
-var okay = false
+var perfect := false
+var good := false
+var okay := false
 var current_note = null
 
-@export var input = ""
-
+@export var input := ""
 
 func _unhandled_input(event):
 	# --- PRESS ---
@@ -15,27 +14,19 @@ func _unhandled_input(event):
 
 		if current_note != null:
 			if current_note.is_hold:
-				# Start holding, DO NOT reset lane state
+				# Award timing score for the START of the hold
+				var score := _get_timing_score()
+				get_parent().increment_score(score)
+				current_note.register_initial_hit(score)
 				current_note.start_hold()
 			else:
-				print("tap")
-				# Tap note scoring
-				if perfect:
-					print("3")
-					get_parent().increment_score(3)
-					current_note.destroy(3)
-				elif good:
-					print("2")
-					get_parent().increment_score(2)
-					current_note.destroy(2)
-				elif okay:
-					print("1")
-					get_parent().increment_score(1)
-					current_note.destroy(1)
-
-				_reset()  # Only reset for tap notes
+				# TAP NOTE scoring
+				var score := _get_timing_score()
+				get_parent().increment_score(score)
+				current_note.destroy(score)
+				_reset()
 		else:
-			print("0")
+			# No note in lane
 			get_parent().increment_score(0)
 
 	# --- RELEASE ---
@@ -43,47 +34,47 @@ func _unhandled_input(event):
 		$PushTimer.start()
 		frame = 0
 
-		# If we were holding a note, check if we released early
 		if current_note != null and current_note.is_hold:
 			current_note.release_hold()
-			_reset()  # Now we reset after the hold ends
+			_reset()
 
+func _get_timing_score() -> int:
+	if perfect:
+		return 3
+	elif good:
+		return 2
+	elif okay:
+		return 1
+	return 0
 
 func _on_PerfectArea_area_entered(area):
 	if area.is_in_group("note"):
 		perfect = true
 
-
 func _on_PerfectArea_area_exited(area):
 	if area.is_in_group("note"):
 		perfect = false
-
 
 func _on_GoodArea_area_entered(area):
 	if area.is_in_group("note"):
 		good = true
 
-
 func _on_GoodArea_area_exited(area):
 	if area.is_in_group("note"):
 		good = false
-
 
 func _on_OkayArea_area_entered(area):
 	if area.is_in_group("note"):
 		okay = true
 		current_note = area
 
-
 func _on_OkayArea_area_exited(area):
 	if area.is_in_group("note"):
 		okay = false
 		current_note = null
 
-
 func _on_PushTimer_timeout():
 	frame = 0
-
 
 func _reset():
 	current_note = null

@@ -1,46 +1,48 @@
 extends Camera2D
 
-const TRANS = Tween.TRANS_SINE
-const EASE = Tween.EASE_IN_OUT
+const TRANS := Tween.TRANS_SINE
+const EASE := Tween.EASE_IN_OUT
 
-var amplitude = 0
-var priority = 0	
+var amplitude: float = 0.0
+var priority: int = 0
 
+@onready var duration_timer: Timer = $Duration
+@onready var frequency_timer: Timer = $Frequency
 
-func shake(duration = 0.2, frequency = 15, amplitude = 2, priority = 0):
-	if priority >= self.priority:
-		self.priority = priority 
-		self.amplitude = amplitude
-		
-		$Duration.wait_time = duration
-		$Frequency.wait_time = 1 / float(frequency)
-		$Duration.start()
-		$Frequency.start()
-		
+func shake(duration: float = 0.2, frequency: float = 15.0, amp: float = 2.0, prio: int = 0) -> void:
+	if prio >= priority:
+		priority = prio
+		amplitude = amp
+
+		duration_timer.wait_time = duration
+		frequency_timer.wait_time = 1.0 / frequency
+
+		duration_timer.start()
+		frequency_timer.start()
+
 		_shake()
 
 
-func _shake():
-	var rand = Vector2()
-	rand.x = rand_range(-amplitude, amplitude)
-	rand.y = rand_range(-amplitude, amplitude)
-	
-	$Tween.interpolate_property(self, "offset", offset, rand, 
-				$Frequency.wait_time, TRANS, EASE)
-	$Tween.start()
+func _shake() -> void:
+	var rand := Vector2(
+		randf_range(-amplitude, amplitude),
+		randf_range(-amplitude, amplitude)
+	)
+
+	var tween := create_tween()
+	tween.tween_property(self, "offset", rand, frequency_timer.wait_time).set_trans(TRANS).set_ease(EASE)
 
 
-func _on_Frequency_timeout():
+func _on_Frequency_timeout() -> void:
 	_shake()
 
 
-func _reset():
-	$Tween.interpolate_property(self, "offset", offset, Vector2(), 
-				$Frequency.wait_time, TRANS, EASE)
-	$Tween.start()
+func _reset() -> void:
+	var tween := create_tween()
+	tween.tween_property(self, "offset", Vector2.ZERO, frequency_timer.wait_time).set_trans(TRANS).set_ease(EASE)
 	priority = 0
 
 
-func _on_Duration_timeout():
+func _on_Duration_timeout() -> void:
 	_reset()
-	$Frequency.stop()
+	frequency_timer.stop()

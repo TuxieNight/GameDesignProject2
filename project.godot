@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="2-Button-2019"
+config/name="MusicMaker"
 run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
