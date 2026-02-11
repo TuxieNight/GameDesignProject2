@@ -54,6 +54,7 @@ escape={
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.46666667, 0.44313726, 0.7294118, 1)
 quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color(0.305882, 0.286275, 0.372549, 1)
 environment/default_environment="res://default_env.tres"

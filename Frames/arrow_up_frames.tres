@@ -1,12 +1,18 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=2]
+[gd_resource type="SpriteFrames" format=3 uid="uid://qvlv6gcox4o0"]
 
-[ext_resource path="res://Sprites/game/arrow_button/up/arrow_button_up2.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/game/arrow_button/up/arrow_button_up1.png" type="Texture" id=2]
+[ext_resource type="Texture2D" uid="uid://cd6ltbmn52pg7" path="res://Sprites/ourArt/Bar.png" id="1_nvb6l"]
+[ext_resource type="Texture2D" uid="uid://x5xojjs0yo6g" path="res://Sprites/ourArt/BarHit.png" id="2_3c1yw"]
 
 [resource]
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nvb6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3c1yw")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
-} ]
+}]

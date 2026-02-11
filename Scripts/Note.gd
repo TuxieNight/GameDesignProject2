@@ -1,25 +1,29 @@
 extends Area2D
 
 # --- HORIZONTAL NOTE HIGHWAY ---
-const TARGET_X := 160
-const SPAWN_X := 400
+const staffWidth := 200
+const staffHeight := 157
+const TARGET_X := 375
+const SPAWN_X := TARGET_X + staffWidth
 const DIST_TO_TARGET := SPAWN_X - TARGET_X
+const noteY = 320 - staffHeight
+const noteSpacing = 19
 
 # --- TREBLE STAFF LANES (adjust Y values to match your scene) ---
 const STAFF_LANES := {
-	"C4": 280,
-	"D4": 260,
-	"E4": 240,
-	"F4": 220,
-	"G4": 200,
-	"A4": 180,
-	"B4": 160,
-	"C5": 140,
-	"D5": 120,
-	"E5": 100,
-	"F5":  80,
-	"G5":  60,
-	"A5":  40
+	"C4": noteSpacing*13 + noteY,
+	"D4": noteSpacing*12 + noteY,
+	"E4": noteSpacing*11 + noteY,
+	"F4": noteSpacing*10 + noteY,
+	"G4": noteSpacing*9 + noteY,
+	"A4": noteSpacing*8 + noteY,
+	"B4": noteSpacing*7 + noteY,
+	"C5": noteSpacing*6 + noteY,
+	"D5": noteSpacing*5 + noteY,
+	"E5": noteSpacing*4 + noteY,
+	"F5":  noteSpacing*3 + noteY,
+	"G5":  noteSpacing*2 + noteY,
+	"A5":  noteSpacing*1 + noteY
 }
 const DURATION_TO_FRAME := {
 	1.0: 0,   # quarter

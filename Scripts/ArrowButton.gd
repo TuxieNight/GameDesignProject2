@@ -1,9 +1,12 @@
 extends AnimatedSprite2D
 
+# All notes currently inside the timing window
+var notes_in_lane: Array = []
+
+# Timing window flags (lane-wide, but safe now)
 var perfect := false
 var good := false
 var okay := false
-var current_note = null
 
 @export var input := ""
 
@@ -12,19 +15,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed(input, false):
 		frame = 1
 
-		if current_note != null:
-			if current_note.is_hold:
-				# Award timing score for the START of the hold
-				var score := _get_timing_score()
-				get_parent().increment_score(score)
-				current_note.register_initial_hit(score)
-				current_note.start_hold()
-			else:
-				# TAP NOTE scoring
-				var score := _get_timing_score()
-				get_parent().increment_score(score)
-				current_note.destroy(score)
-				_reset()
+		if notes_in_lane.size() > 0:
+			_handle_note_hits()
 		else:
 			# No note in lane
 			get_parent().increment_score(0)
@@ -34,9 +26,36 @@ func _unhandled_input(event):
 		$PushTimer.start()
 		frame = 0
 
-		if current_note != null and current_note.is_hold:
-			current_note.release_hold()
-			_reset()
+		# Release all hold notes currently active
+		for note in notes_in_lane:
+			if note.is_hold:
+				note.release_hold()
+
+	_reset_timing_flags()
+
+
+# ---------------------------------------------------------
+# NOTE HIT HANDLING
+# ---------------------------------------------------------
+
+func _handle_note_hits():
+	for note in notes_in_lane:
+		var score := _get_timing_score()
+		get_parent().increment_score(score)
+
+		if note.is_hold:
+			note.register_initial_hit(score)
+			note.start_hold()
+		else:
+			note.destroy(score)
+
+	# After scoring, clear notes
+	notes_in_lane.clear()
+
+
+# ---------------------------------------------------------
+# TIMING WINDOWS
+# ---------------------------------------------------------
 
 func _get_timing_score() -> int:
 	if perfect:
@@ -47,6 +66,17 @@ func _get_timing_score() -> int:
 		return 1
 	return 0
 
+
+func _reset_timing_flags():
+	perfect = false
+	good = false
+	okay = false
+
+
+# ---------------------------------------------------------
+# AREA SIGNALS
+# ---------------------------------------------------------
+
 func _on_PerfectArea_area_entered(area):
 	if area.is_in_group("note"):
 		perfect = true
@@ -54,6 +84,7 @@ func _on_PerfectArea_area_entered(area):
 func _on_PerfectArea_area_exited(area):
 	if area.is_in_group("note"):
 		perfect = false
+
 
 func _on_GoodArea_area_entered(area):
 	if area.is_in_group("note"):
@@ -63,21 +94,24 @@ func _on_GoodArea_area_exited(area):
 	if area.is_in_group("note"):
 		good = false
 
+
 func _on_OkayArea_area_entered(area):
 	if area.is_in_group("note"):
 		okay = true
-		current_note = area
+		notes_in_lane.append(area)
 
 func _on_OkayArea_area_exited(area):
 	if area.is_in_group("note"):
-		okay = false
-		current_note = null
+		notes_in_lane.erase(area)
+
+		# If no notes remain, clear timing window
+		if notes_in_lane.is_empty():
+			okay = false
+
+
+# ---------------------------------------------------------
+# MISC
+# ---------------------------------------------------------
 
 func _on_PushTimer_timeout():
 	frame = 0
-
-func _reset():
-	current_note = null
-	perfect = false
-	good = false
-	okay = false

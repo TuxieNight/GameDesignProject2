@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bhuqa2yrof2wj"]
+
+[ext_resource type="Texture2D" uid="uid://cka48jbpkgr1s" path="res://Sprites/ourArt/Sheet.png" id="1_io6m6"]
+
+[node name="Sheet" type="Node2D" unique_id=515930846]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254143250]
+position = Vector2(250, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_io6m6")

@@ -1,36 +1,19 @@
 [gd_scene format=3 uid="uid://d1aom4j4o80rf"]
 
 [ext_resource type="PackedScene" uid="uid://bhyghxnnjv5j3" path="res://Scenes/ArrowButton.tscn" id="1"]
-[ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="2"]
-[ext_resource type="SpriteFrames" path="res://Frames/arrow_right_frames.tres" id="3"]
-[ext_resource type="Texture2D" uid="uid://c7lyjnchjuc35" path="res://Sprites/game/road/road.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://bth1k51g43nor" path="res://Sounds/song.ogg" id="5"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://bhuqa2yrof2wj" path="res://Scenes/Sheet.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
 
 [node name="Game" type="Node2D" unique_id=897590322]
 script = ExtResource("6")
 
-[node name="road" type="Sprite2D" parent="." unique_id=1881875725]
-position = Vector2(400, 100)
-rotation = 1.5707964
-texture = ExtResource("4")
-centered = false
-
 [node name="ArrowUp" parent="." unique_id=37333427 instance=ExtResource("1")]
-position = Vector2(200, 160)
+z_index = 1
+position = Vector2(375, 320)
 input = "up"
-
-[node name="ArrowLeft" parent="." unique_id=1073547046 instance=ExtResource("1")]
-position = Vector2(200, 120)
-sprite_frames = ExtResource("2")
-input = "left"
-
-[node name="ArrowButton" parent="." unique_id=594170311 instance=ExtResource("1")]
-position = Vector2(200, 200)
-sprite_frames = ExtResource("3")
-input = "right"
 
 [node name="Label" type="Label" parent="." unique_id=2052336268]
 text = "0"
@@ -48,8 +31,12 @@ volume_db = -15.0
 bpm = 115
 
 [node name="Player" parent="." unique_id=560582400 instance=ExtResource("8_2irst")]
-position = Vector2(885.00006, 278)
+z_index = 5
+position = Vector2(285, 374)
 scale = Vector2(0.75, 0.75)
+
+[node name="Sheet" parent="." unique_id=515930846 instance=ExtResource("7_fgofq")]
+position = Vector2(382.5, 320)
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhyghxnnjv5j3"]
 
-[ext_resource type="SpriteFrames" path="res://Frames/arrow_up_frames.tres" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://qvlv6gcox4o0" path="res://Frames/arrow_up_frames.tres" id="1"]
 [ext_resource type="Script" uid="uid://3hh0jd1oq6qa" path="res://Scripts/ArrowButton.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -13,23 +13,27 @@ size = Vector2(8, 16)
 size = Vector2(8, 24)
 
 [node name="ArrowButton" type="AnimatedSprite2D" unique_id=403500746]
+scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("1")
 script = ExtResource("2")
 
 [node name="PerfectArea" type="Area2D" parent="." unique_id=1818611945]
 rotation = 1.5707964
+scale = Vector2(62.5, 2.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea" unique_id=1298625125]
 shape = SubResource("1")
 
 [node name="GoodArea" type="Area2D" parent="." unique_id=456360350]
 rotation = 1.5707964
+scale = Vector2(62.5, 2.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoodArea" unique_id=122821366]
 shape = SubResource("2")
 
 [node name="OkayArea" type="Area2D" parent="." unique_id=1835557218]
 rotation = 1.5707964
+scale = Vector2(62.5, 2.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea" unique_id=121746380]
 shape = SubResource("3")

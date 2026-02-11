@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://cnb2nbepksohy"]
 
-[ext_resource type="SpriteFrames" path="res://Frames/note_frames.tres" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://t68r7s4u7a6j" path="res://Frames/note_frames.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://cevc66xycq4xk" path="res://Sprites/game/particles/star.png" id="2"]
 [ext_resource type="Script" uid="uid://cu10yihjdw3lr" path="res://Scripts/Note.gd" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(8, 8)
+size = Vector2(31, 25)
 
 [node name="Note" type="Area2D" unique_id=974388935 groups=["note"]]
 script = ExtResource("4")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=857260906]
+scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98401822]
+position = Vector2(-0.5, 24.5)
 shape = SubResource("1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=490015981]
