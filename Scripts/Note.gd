@@ -7,6 +7,8 @@ const DIST_TO_TARGET := SPAWN_X - TARGET_X
 
 # --- TREBLE STAFF LANES (adjust Y values to match your scene) ---
 const STAFF_LANES := {
+	"C4": 280,
+	"D4": 260,
 	"E4": 240,
 	"F4": 220,
 	"G4": 200,
@@ -15,7 +17,9 @@ const STAFF_LANES := {
 	"C5": 140,
 	"D5": 120,
 	"E5": 100,
-	"F5":  80
+	"F5":  80,
+	"G5":  60,
+	"A5":  40
 }
 const DURATION_TO_FRAME := {
 	1.0: 0,   # quarter
@@ -23,6 +27,7 @@ const DURATION_TO_FRAME := {
 	4.0: 2,   # whole
 	0.5: 3,   # eighth
 	0.25: 4   # sixteenth
+	# special frames will involve +5 (like C4 and A5)
 }
 
 var speed := 0.0
@@ -65,7 +70,10 @@ func initialize(note_name: String, duration_beats: float, sec_per_beat, spawn_ti
 
 	# --- SET SPRITE BASED ON DURATION ---
 	if DURATION_TO_FRAME.has(duration_beats):
-		$AnimatedSprite.frame = DURATION_TO_FRAME[duration_beats]
+		var special = 0
+		if (note_name == "C4" || note_name == "A5"):
+			special += 5
+		$AnimatedSprite.frame = DURATION_TO_FRAME[duration_beats] + special
 	else:
 		printerr("Unknown duration: ", duration_beats)
 

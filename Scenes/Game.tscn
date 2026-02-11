@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bth1k51g43nor" path="res://Sounds/song.ogg" id="5"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
 
 [node name="Game" type="Node2D" unique_id=897590322]
 script = ExtResource("6")
@@ -45,6 +46,10 @@ horizontal_alignment = 1
 stream = ExtResource("5")
 volume_db = -15.0
 bpm = 115
+
+[node name="Player" parent="." unique_id=560582400 instance=ExtResource("8_2irst")]
+position = Vector2(885.00006, 278)
+scale = Vector2(0.75, 0.75)
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

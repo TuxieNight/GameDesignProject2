@@ -1,11 +1,3 @@
-res://Scenes/Note.tscn
-res://Plugins/Scripts/SimpleTopDownMovement.gd
-res://Plugins/Camera2D/Camera2D.gd
-res://Scenes/Menu.tscn
+res://Scenes/Player.tscn
 res://Scenes/Game.tscn
-res://Charts/song1.json
-res://Scripts/Note.gd
-res://Scenes/ArrowButton.tscn
-res://Scripts/ArrowButton.gd
-res://Scripts/Game.gd
-res://Scripts/ChartLoader.gd
+res://Scenes/Menu.tscn
