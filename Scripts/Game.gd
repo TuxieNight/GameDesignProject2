@@ -1,5 +1,8 @@
 extends Node2D
 
+var max_health := 5
+var player_health := max_health
+
 var score = 0
 var combo = 0
 
@@ -54,6 +57,9 @@ func _ready():
 	$Conductor.play_with_beat_offset(8)
 
 	next_note = chart.get_next_note()
+	
+	$HeartContainer/Layout.max_hearts = max_health
+	$HeartContainer/Layout.set_health(player_health)
 
 func _input(event):
 	if event.is_action("escape"):
@@ -121,3 +127,16 @@ func increment_score(by):
 func reset_combo():
 	combo = 0
 	$Combo.text = ""
+	apply_damage(1)
+
+func apply_damage(amount):
+	player_health = max(player_health - amount, 0)
+	$HeartContainer/Layout.set_health(player_health)
+	
+	if player_health <= 0:
+		game_over()
+
+func game_over():
+	var result = get_tree().change_scene_to_file("res://Scenes/End.tscn")
+	if result != OK:
+		print("Error changing scene to End")

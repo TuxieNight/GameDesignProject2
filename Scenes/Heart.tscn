@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cen8i4cm0iy28"]
+
+[ext_resource type="Texture2D" uid="uid://bgyqhshncf8gu" path="res://Sprites/ourArt/health.webp" id="1_sv43p"]
+[ext_resource type="Texture2D" uid="uid://dcyjy7miy1vcp" path="res://Sprites/ourArt/healthLost.webp" id="2_y8w3n"]
+[ext_resource type="Script" uid="uid://xkqvdgfjj138" path="res://Scripts/Heart.gd" id="3_43i34"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qt827"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sv43p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y8w3n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Heart" type="Control" unique_id=1656979919]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_43i34")
+
+[node name="Sprites" type="AnimatedSprite2D" parent="." unique_id=332564251]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_qt827")

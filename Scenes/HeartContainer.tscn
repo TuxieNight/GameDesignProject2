@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bbf6mgfsuavgx"]
+
+[ext_resource type="Script" uid="uid://c0nysoeeqiosk" path="res://Scripts/HeartContainer.gd" id="1_qk2gh"]
+[ext_resource type="PackedScene" uid="uid://cen8i4cm0iy28" path="res://Scenes/Heart.tscn" id="2_qk2gh"]
+
+[node name="HeartContainer" type="Control" unique_id=1367501383]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Layout" type="HBoxContainer" parent="." unique_id=1662323139]
+layout_mode = 0
+theme_override_constants/separation = 50
+script = ExtResource("1_qk2gh")
+heart_scene = ExtResource("2_qk2gh")

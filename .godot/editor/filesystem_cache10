@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770823368
+::res://::1770843899
 default_env.tres::Environment::-1::1770740702::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1770740702::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::2408888507282025651::1770740702::1770740776::1::::<><><>0<>0<>c7aa86c4ec57a4dc35941692b9ab4700<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
@@ -28,17 +28,17 @@ Camera2D.gd::GDScript::3205941181794447848::1770741655::0::1::::<>Camera2D<><>0<
 Camera2D.tscn::PackedScene::-1::1770741783::0::1::::<><><>0<>0<><>::res://Plugins/Camera2D/Camera2D.gd
 ::res://Plugins/Scripts/::1770741481
 SimpleTopDownMovement.gd::GDScript::3111801117269154442::1770741481::0::1::::<>CharacterBody2D<><>0<>0<><>::
-::res://Scenes/::1770823360
+::res://Scenes/::1770824877
 ArrowButton.tscn::PackedScene::2927665686493754078::1770822787::0::1::::<><><>0<>0<><>::uid://qvlv6gcox4o0::::res://Frames/arrow_up_frames.tres<>uid://3hh0jd1oq6qa::::res://Scripts/ArrowButton.gd
 Conductor.tscn::PackedScene::4030981473340050478::1770740702::0::1::::<><><>0<>0<><>::uid://yywso1yywi6e::::res://Scripts/Conductor.gd
 End.tscn::PackedScene::-1::1770740702::0::1::::<><><>0<>0<><>::res://Sprites/ui/play_again_button/play_again1.png<>res://Sprites/ui/back_to_menu_button/back_to_menu2.png<>res://Sprites/ui/back_to_menu_button/back_to_menu1.png<>res://Sprites/ui/play_again_button/play_again2.png<>res://Fonts/heartbit2x.tres<>res://Scripts/End.gd
-Game.tscn::PackedScene::8985044991511790835::1770823360::0::1::::<><><>0<>0<><>::uid://bhyghxnnjv5j3::::res://Scenes/ArrowButton.tscn<>uid://c7lyjnchjuc35::::res://Sprites/game/road/road.png<>uid://bth1k51g43nor::::res://Sounds/song.ogg<>uid://dfgf7xhulwms0::::res://Scripts/Game.gd<>uid://bhuqa2yrof2wj::::res://Scenes/Sheet.tscn<>uid://bxovw8m3pxnrq::::res://Scenes/Conductor.tscn<>uid://biu6vahw6bwla::::res://Scenes/Player.tscn
+Game.tscn::PackedScene::8985044991511790835::1770824877::0::1::::<><><>0<>0<><>::uid://bhyghxnnjv5j3::::res://Scenes/ArrowButton.tscn<>uid://bth1k51g43nor::::res://Sounds/song.ogg<>uid://dfgf7xhulwms0::::res://Scripts/Game.gd<>uid://bhuqa2yrof2wj::::res://Scenes/Sheet.tscn<>uid://bxovw8m3pxnrq::::res://Scenes/Conductor.tscn<>uid://biu6vahw6bwla::::res://Scenes/Player.tscn
 Global.tscn::PackedScene::4523265162445991000::1770740702::0::1::::<><><>0<>0<><>::uid://kpkshtk6lefg::::res://Scripts/Global.gd
 Menu.tscn::PackedScene::2900576081809229656::1770760081::0::1::::<><><>0<>0<><>::uid://btfxe5dkhi87n::::res://Scripts/Menu.gd<>uid://cwohkltoaubct::::res://Sprites/ui/play_button/play1.png<>uid://dtsy7utaxwbn4::::res://Sprites/ui/play_button/play2.png<>uid://d2m4si8vyitk5::::res://Sprites/ui/test_button/test_button1.png<>uid://iokslmi1d8g3::::res://Sprites/ui/test_button/test_button2.png<>uid://dj6n2blxdfqno::::res://Sounds/bell_ding.ogg
 Note.tscn::PackedScene::5689023345958327502::1770821476::0::1::::<><><>0<>0<><>::uid://t68r7s4u7a6j::::res://Frames/note_frames.tres<>uid://cevc66xycq4xk::::res://Sprites/game/particles/star.png<>uid://cu10yihjdw3lr::::res://Scripts/Note.gd
 Player.tscn::PackedScene::2991138728181020614::1770783911::0::1::::<><><>0<>0<><>::uid://by73ql1eaxdmt::::res://Sprites/ourArt/noPawPress.webp<>uid://dos0fs57ci4sg::::res://Sprites/ourArt/bothPawPress.webp<>uid://cm1e75x0glwqd::::res://Sprites/ourArt/pawPress1.webp<>uid://dqguvpk6hmp5e::::res://Sprites/ourArt/pawPress2.webp
 Sheet.tscn::PackedScene::2920003072121885961::1770823244::0::1::::<><><>0<>0<><>::uid://cka48jbpkgr1s::::res://Sprites/ourArt/Sheet.png
-::res://Scripts/::1770822787
+::res://Scripts/::1770824744
 ArrowButton.gd::GDScript::1980208408485572348::1770822787::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
 ChartLoader.gd::GDScript::6356646735590715287::1770748602::0::1::::ChartLoader<>Node<><>0<>0<><>::
 Conductor.gd::GDScript::1735446008156576242::1770740702::0::1::::<>AudioStreamPlayer<><>0<>0<><>::
@@ -46,7 +46,7 @@ End.gd::GDScript::5300408701562037882::1770740702::0::1::::<>Node2D<><>0<>0<><>:
 Game.gd::GDScript::7522954485937584333::1770748644::0::1::::<>Node2D<><>0<>0<><>::
 Global.gd::GDScript::733493814420125960::1770740702::0::1::::<>Node2D<><>0<>0<><>::
 Menu.gd::GDScript::3731735816394243329::1770740702::0::1::::<>Node2D<><>0<>0<><>::
-Note.gd::GDScript::6231853277039540407::1770755095::0::1::::<>Area2D<><>0<>0<><>::
+Note.gd::GDScript::6231853277039540407::1770824744::0::1::::<>Area2D<><>0<>0<><>::
 Player.gd::GDScript::4269744334524789139::1770756105::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Sounds/::1770740776
 bell_ding.ogg::AudioStreamOggVorbis::7855794962104281856::1770740702::1770740776::1::::<><><>0<>0<>953e83eeef03e72dc5dd4f4be1ab31bf<>res://.godot/imported/bell_ding.ogg-f0d0e0f5f70963587f9395e11c38efd6.oggvorbisstr::
@@ -70,7 +70,7 @@ arrow_button_up3.png::CompressedTexture2D::5663136175460033004::1770740702::1770
 star.png::CompressedTexture2D::5097127133218313708::1770740702::1770740776::1::::<><><>0<>0<>afb3a86e70c0f5d800803d688c66ca0b<>res://.godot/imported/star.png-f4932329279fab1131fefed4205b17e1.ctex::
 ::res://Sprites/game/road/::1770740776
 road.png::CompressedTexture2D::7043066485293460206::1770740702::1770740776::1::::<><><>0<>0<>a3d2ab81032e2fa78c6662419b9aa1d6<>res://.godot/imported/road.png-82d1f39fd71d243aabb83760edf2fe52.ctex::
-::res://Sprites/ourArt/::1770823454
+::res://Sprites/ourArt/::1770823456
 Bar.png::CompressedTexture2D::5048105497373608960::1770821942::1770821948::1::::<><><>0<>0<>d4648c5471e62bc216007a4bc37fbfcd<>res://.godot/imported/Bar.png-4e2d9daa9a0222cec1e7cd7206a97279.ctex::
 BarHit.png::CompressedTexture2D::1677696715710432940::1770822225::1770822230::1::::<><><>0<>0<>496b3c82dcffeff3532b2ad69ddf44ff<>res://.godot/imported/BarHit.png-f8845552012bfd4e1fb8d457846d1a38.ctex::
 bothPawPress.webp::CompressedTexture2D::8180592508594908478::1770755504::1770755746::1::::<><><>0<>0<>35ce31d5b1d5deb1483dee396e131c91<>res://.godot/imported/bothPawPress.webp-875155bfa1aa2caac1cf8a795bac3ec7.ctex::

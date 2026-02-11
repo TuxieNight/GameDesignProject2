@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhyghxnnjv5j3" path="res://Scenes/ArrowButton.tscn" id="1"]
 [ext_resource type="AudioStream" uid="uid://bth1k51g43nor" path="res://Sounds/song.ogg" id="5"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://bbf6mgfsuavgx" path="res://Scenes/HeartContainer.tscn" id="7_2irst"]
 [ext_resource type="PackedScene" uid="uid://bhuqa2yrof2wj" path="res://Scenes/Sheet.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
@@ -37,6 +38,12 @@ scale = Vector2(0.75, 0.75)
 
 [node name="Sheet" parent="." unique_id=515930846 instance=ExtResource("7_fgofq")]
 position = Vector2(382.5, 320)
+
+[node name="HeartContainer" parent="." unique_id=1367501383 instance=ExtResource("7_2irst")]
+offset_left = 153.0
+offset_top = 58.0
+offset_right = 153.0
+offset_bottom = 58.0
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]
