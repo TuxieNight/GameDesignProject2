@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bhuqa2yrof2wj" path="res://Scenes/Sheet.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
+[ext_resource type="PackedScene" uid="uid://bo0k2vgkjaifw" path="res://Scenes/Enemy.tscn" id="8_bf53h"]
 
 [node name="Game" type="Node2D" unique_id=897590322]
 script = ExtResource("6")
 
 [node name="ArrowUp" parent="." unique_id=37333427 instance=ExtResource("1")]
 z_index = 1
-position = Vector2(375, 320)
+position = Vector2(270, 300)
 input = "up"
 
 [node name="Label" type="Label" parent="." unique_id=2052336268]
@@ -33,17 +34,21 @@ bpm = 115
 
 [node name="Player" parent="." unique_id=560582400 instance=ExtResource("8_2irst")]
 z_index = 5
-position = Vector2(285, 374)
-scale = Vector2(0.75, 0.75)
+position = Vector2(188, 454)
+scale = Vector2(0.5, 0.5)
 
 [node name="Sheet" parent="." unique_id=515930846 instance=ExtResource("7_fgofq")]
-position = Vector2(382.5, 320)
+position = Vector2(270, 300)
 
 [node name="HeartContainer" parent="." unique_id=1367501383 instance=ExtResource("7_2irst")]
 offset_left = 153.0
 offset_top = 58.0
 offset_right = 153.0
 offset_bottom = 58.0
+
+[node name="Enemy" parent="." unique_id=951707960 instance=ExtResource("8_bf53h")]
+position = Vector2(937, 423)
+scale = Vector2(0.6, 0.6)
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

@@ -6,3 +6,5 @@ res://Scripts/Game.gd
 res://Scenes/Heart.tscn
 res://Scenes/Game.tscn
 res://Scenes/End.tscn
+res://Scenes/Enemy.tscn
+res://Scenes/Note.tscn

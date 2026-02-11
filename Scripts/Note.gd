@@ -3,10 +3,10 @@ extends Area2D
 # --- HORIZONTAL NOTE HIGHWAY ---
 const staffWidth := 200
 const staffHeight := 157
-const TARGET_X := 375
+const TARGET_X := 270
 const SPAWN_X := TARGET_X + staffWidth
 const DIST_TO_TARGET := SPAWN_X - TARGET_X
-const noteY = 320 - staffHeight
+const noteY = 300 - staffHeight
 const noteSpacing = 19
 
 # --- TREBLE STAFF LANES (adjust Y values to match your scene) ---

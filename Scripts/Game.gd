@@ -1,6 +1,6 @@
 extends Node2D
 
-var max_health := 5
+var max_health := 7
 var player_health := max_health
 
 var score = 0
@@ -58,8 +58,7 @@ func _ready():
 
 	next_note = chart.get_next_note()
 	
-	$HeartContainer/Layout.max_hearts = max_health
-	$HeartContainer/Layout.set_health(player_health)
+	$HeartContainer/Layout.initialize(max_health, player_health)
 
 func _input(event):
 	if event.is_action("escape"):

@@ -9,6 +9,6 @@ anchors_preset = 0
 
 [node name="Layout" type="HBoxContainer" parent="." unique_id=1662323139]
 layout_mode = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 70
 script = ExtResource("1_qk2gh")
 heart_scene = ExtResource("2_qk2gh")
