@@ -1,10 +1,6 @@
-res://Scenes/HeartContainer.tscn
-res://Scripts/Heart.gd
-res://Scripts/HeartContainer.gd
-res://Scripts/Note.gd
-res://Scripts/Game.gd
-res://Scenes/Heart.tscn
 res://Scenes/Game.tscn
-res://Scenes/End.tscn
-res://Scenes/Enemy.tscn
+res://Scripts/Game.gd
+res://Scripts/Bar.gd
+res://Scripts/Note.gd
 res://Scenes/Note.tscn
+res://Scripts/Conductor.gd

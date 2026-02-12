@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhyghxnnjv5j3"]
 
 [ext_resource type="SpriteFrames" uid="uid://qvlv6gcox4o0" path="res://Frames/arrow_up_frames.tres" id="1"]
-[ext_resource type="Script" uid="uid://3hh0jd1oq6qa" path="res://Scripts/ArrowButton.gd" id="2"]
+[ext_resource type="Script" uid="uid://3hh0jd1oq6qa" path="res://Scripts/Bar.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 4)
@@ -12,7 +12,7 @@ size = Vector2(8, 16)
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(8, 24)
 
-[node name="ArrowButton" type="AnimatedSprite2D" unique_id=403500746]
+[node name="Bar" type="AnimatedSprite2D" unique_id=403500746]
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("1")
 script = ExtResource("2")

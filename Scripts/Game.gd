@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var beats_visible := 4.0
+
 var max_health := 7
 var player_health := max_health
 
@@ -17,11 +19,7 @@ var bpm = 115
 var song_position = 0.0
 var song_position_in_beats = 0
 var last_spawned_beat = 0
-
-var spawn_1_beat = 0
-var spawn_2_beat = 0
-var spawn_3_beat = 1
-var spawn_4_beat = 0
+var first_note_time
 
 var lane = 0
 var rand = 0
@@ -54,7 +52,7 @@ func _ready():
 
 	sec_per_beat = 60.0 / chart.bpm
 	$Conductor.bpm = chart.bpm
-	$Conductor.play_with_beat_offset(8)
+	$Conductor.song_position = -beats_visible * sec_per_beat
 
 	next_note = chart.get_next_note()
 	
@@ -67,15 +65,28 @@ func _input(event):
 
 func _physics_process(delta):
 	var song_time = $Conductor.song_position
+	var first_note = chart.notes[0]
+	var first_beat = first_note["beat"]
+	first_note_time = first_beat * sec_per_beat + chart.offset
+
+	
+	if song_time >= first_note_time and !$Conductor.playing_audio:
+		$Conductor.play()
+		$Conductor.playing_audio = true
 
 	while next_note != null:
 		var beat = next_note["beat"]
 		var note_time = beat * sec_per_beat + chart.offset
+		
+		var travel_time = beats_visible * sec_per_beat
+		var spawn_time = note_time - travel_time
 
-		if song_time >= note_time:
+
+		if song_time >= spawn_time:
 			_spawn_chart_note(
 				next_note["note"],
-				next_note["duration"]
+				next_note["duration"],
+				note_time
 			)
 
 			chart.advance()
@@ -84,17 +95,20 @@ func _physics_process(delta):
 			break
 
 
-func _spawn_chart_note(lane, duration):
+func _spawn_chart_note(lane, duration, note_time):
 	var duration_beats = duration_to_beats(duration, chart.beat_unit)
 	var instance = note.instantiate()
 	instance.initialize(
+		self,
 		lane,
 		duration_beats,
 		sec_per_beat,
-		$Conductor.song_position,
-		$Conductor
+		note_time,
+		$Conductor,
+		$PlayableSheet/Bar,
+		beats_visible
 	)
-	add_child(instance)
+	$PlayableSheet.add_child(instance)
 
 
 func increment_score(by):

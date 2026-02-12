@@ -2,6 +2,7 @@ extends AudioStreamPlayer
 
 @export var bpm := 100
 @export var measures := 4
+var playing_audio := false
 
 # Tracking the beat and song position
 var song_position = 0.0
@@ -21,15 +22,10 @@ signal measure(position)
 func _ready():
 	sec_per_beat = 60.0 / bpm
 
-
-
-func _physics_process(_delta):
-	if playing:
-		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
-		song_position -= AudioServer.get_output_latency()
-		song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
-		_report_beat()
-
+func _physics_process(delta):
+	song_position += delta
+	song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
+	_report_beat()
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
@@ -68,7 +64,4 @@ func _on_StartTimer_timeout():
 		$StartTimer.wait_time = $StartTimer.wait_time - (AudioServer.get_time_to_next_mix() +
 														AudioServer.get_output_latency())
 		$StartTimer.start()
-	else:
-		play()
-		$StartTimer.stop()
 	_report_beat()

@@ -8,9 +8,13 @@ var perfect := false
 var good := false
 var okay := false
 
+@export var game: Node
 @export var input := ""
 
 func _unhandled_input(event):
+	if game == null:
+		return
+	
 	# --- PRESS ---
 	if event.is_action_pressed(input, false):
 		frame = 1
@@ -19,7 +23,7 @@ func _unhandled_input(event):
 			_handle_note_hits()
 		else:
 			# No note in lane
-			get_parent().increment_score(0)
+			game.increment_score(0)
 
 	# --- RELEASE ---
 	if event.is_action_released(input):
@@ -41,7 +45,7 @@ func _unhandled_input(event):
 func _handle_note_hits():
 	for note in notes_in_lane:
 		var score := _get_timing_score()
-		get_parent().increment_score(score)
+		game.increment_score(score)
 
 		if note.is_hold:
 			note.register_initial_hit(score)

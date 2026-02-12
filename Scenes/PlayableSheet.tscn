@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://sf6g6xev5qy0"]
+
+[ext_resource type="PackedScene" uid="uid://bhyghxnnjv5j3" path="res://Scenes/Bar.tscn" id="1_wjxwv"]
+[ext_resource type="PackedScene" uid="uid://bhuqa2yrof2wj" path="res://Scenes/Sheet.tscn" id="2_rwvgw"]
+
+[node name="PlayableSheet" type="Node2D" unique_id=1095358049]
+
+[node name="Bar" parent="." unique_id=403500746 instance=ExtResource("1_wjxwv")]
+z_index = 1
+input = "spacebar"
+
+[node name="Sheet" parent="." unique_id=515930846 instance=ExtResource("2_rwvgw")]
+position = Vector2(12, 0)

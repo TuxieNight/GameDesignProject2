@@ -1,30 +1,22 @@
 extends Area2D
 
+@export var beats_visible := 4.0
+
 # --- HORIZONTAL NOTE HIGHWAY ---
 const staffWidth := 200
 const staffHeight := 157
-const TARGET_X := 270
-const SPAWN_X := TARGET_X + staffWidth
-const DIST_TO_TARGET := SPAWN_X - TARGET_X
-const noteY = 300 - staffHeight
-const noteSpacing = 19
+
+var TARGET_X := 0
+var DIST_TO_TARGET = staffWidth * 2.5
+var SPAWN_X = TARGET_X + DIST_TO_TARGET
+var noteY = -staffHeight
+var noteSpacing = 19
+var note_time
+
 
 # --- TREBLE STAFF LANES (adjust Y values to match your scene) ---
-const STAFF_LANES := {
-	"C4": noteSpacing*13 + noteY,
-	"D4": noteSpacing*12 + noteY,
-	"E4": noteSpacing*11 + noteY,
-	"F4": noteSpacing*10 + noteY,
-	"G4": noteSpacing*9 + noteY,
-	"A4": noteSpacing*8 + noteY,
-	"B4": noteSpacing*7 + noteY,
-	"C5": noteSpacing*6 + noteY,
-	"D5": noteSpacing*5 + noteY,
-	"E5": noteSpacing*4 + noteY,
-	"F5":  noteSpacing*3 + noteY,
-	"G5":  noteSpacing*2 + noteY,
-	"A5":  noteSpacing*1 + noteY
-}
+var STAFF_LANES := { }
+
 const DURATION_TO_FRAME := {
 	1.0: 0,   # quarter
 	2.0: 1,   # half
@@ -47,47 +39,67 @@ var hold_release_window := 0.1
 var initial_hit_score := 0
 
 var conductor
+var game: Node
 
 
 func _physics_process(delta):
-	if !hit:
-		position.x -= speed * delta
-		if position.x < TARGET_X:
+	var t = conductor.song_position
+	var time_until_hit = note_time - t
+	position.x = TARGET_X + time_until_hit * speed
+	
+	if !hit and time_until_hit < 0:
 			queue_free()
-			get_parent().reset_combo()
-	else:
-		$Node2D.position.x -= speed * delta
+			game.reset_combo()
 
 	if is_hold and is_holding:
 		if conductor.song_position >= hold_end_time - hold_release_window and !eval_hold:
 			finish_hold()
 
 
-func initialize(note_name: String, duration_beats: float, sec_per_beat, spawn_time, conductor_ref):
+func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, conductor_ref, bar: Node2D, beats_visible_val):
+	game = gameRef
 	conductor = conductor_ref
+	beats_visible = beats_visible_val
+	note_time = spawn_time
+	
+	var travel_time = beats_visible * sec_per_beat
+	speed = DIST_TO_TARGET / travel_time
+
+	STAFF_LANES = {
+		"C4": noteSpacing*13 + noteY,
+		"D4": noteSpacing*12 + noteY,
+		"E4": noteSpacing*11 + noteY,
+		"F4": noteSpacing*10 + noteY,
+		"G4": noteSpacing*9 + noteY,
+		"A4": noteSpacing*8 + noteY,
+		"B4": noteSpacing*7 + noteY,
+		"C5": noteSpacing*6 + noteY,
+		"D5": noteSpacing*5 + noteY,
+		"E5": noteSpacing*4 + noteY,
+		"F5": noteSpacing*3 + noteY,
+		"G5": noteSpacing*2 + noteY,
+		"A5": noteSpacing*1 + noteY
+	}
 
 	# HOLD SETUP
 	hold_duration_beats = duration_beats
-	is_hold = duration_beats > 1.0   # or however you define holds
+	is_hold = duration_beats > 1.0
 	if is_hold:
 		hold_end_time = spawn_time + duration_beats * sec_per_beat
 
-	# --- SET SPRITE BASED ON DURATION ---
+	# SPRITE FRAME
 	if DURATION_TO_FRAME.has(duration_beats):
 		var special = 0
-		if (note_name == "C4" || note_name == "A5"):
+		if note_name == "C4" or note_name == "A5":
 			special += 5
 		$AnimatedSprite.frame = DURATION_TO_FRAME[duration_beats] + special
-	else:
-		printerr("Unknown duration: ", duration_beats)
 
-	# --- SET POSITION BASED ON NOTE NAME ---
+	# POSITION
 	if STAFF_LANES.has(note_name):
 		position = Vector2(SPAWN_X, STAFF_LANES[note_name])
 	else:
-		printerr("Unknown note name: ", note_name)
+		printerr("Unknown duration: ", duration_beats)
 
-	speed = DIST_TO_TARGET / 2.0
 
 
 # --- HOLD LOGIC ---
@@ -100,7 +112,7 @@ func start_hold():
 
 func finish_hold():
 	eval_hold = true
-	get_parent().increment_score(3)
+	game.increment_score(3)
 	destroy(initial_hit_score)
 
 

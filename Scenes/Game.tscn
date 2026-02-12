@@ -1,21 +1,15 @@
 [gd_scene format=3 uid="uid://d1aom4j4o80rf"]
 
-[ext_resource type="PackedScene" uid="uid://bhyghxnnjv5j3" path="res://Scenes/ArrowButton.tscn" id="1"]
 [ext_resource type="AudioStream" uid="uid://bth1k51g43nor" path="res://Sounds/song.ogg" id="5"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bbf6mgfsuavgx" path="res://Scenes/HeartContainer.tscn" id="7_2irst"]
-[ext_resource type="PackedScene" uid="uid://bhuqa2yrof2wj" path="res://Scenes/Sheet.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://bo0k2vgkjaifw" path="res://Scenes/Enemy.tscn" id="8_bf53h"]
+[ext_resource type="PackedScene" uid="uid://sf6g6xev5qy0" path="res://Scenes/PlayableSheet.tscn" id="9_bf53h"]
 
 [node name="Game" type="Node2D" unique_id=897590322]
 script = ExtResource("6")
-
-[node name="ArrowUp" parent="." unique_id=37333427 instance=ExtResource("1")]
-z_index = 1
-position = Vector2(270, 300)
-input = "up"
 
 [node name="Label" type="Label" parent="." unique_id=2052336268]
 text = "0"
@@ -37,18 +31,23 @@ z_index = 5
 position = Vector2(188, 454)
 scale = Vector2(0.5, 0.5)
 
-[node name="Sheet" parent="." unique_id=515930846 instance=ExtResource("7_fgofq")]
-position = Vector2(270, 300)
-
 [node name="HeartContainer" parent="." unique_id=1367501383 instance=ExtResource("7_2irst")]
-offset_left = 153.0
-offset_top = 58.0
-offset_right = 153.0
-offset_bottom = 58.0
+offset_left = 217.0
+offset_top = 89.0
+offset_right = 217.0
+offset_bottom = 89.0
 
 [node name="Enemy" parent="." unique_id=951707960 instance=ExtResource("8_bf53h")]
 position = Vector2(937, 423)
 scale = Vector2(0.6, 0.6)
 
+[node name="PlayableSheet" parent="." unique_id=1095358049 instance=ExtResource("9_bf53h")]
+position = Vector2(259, 288)
+
+[node name="Bar" parent="PlayableSheet" index="0" unique_id=403500746 node_paths=PackedStringArray("game")]
+game = NodePath("../..")
+
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]
+
+[editable path="PlayableSheet"]
