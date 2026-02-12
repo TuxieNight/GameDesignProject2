@@ -1,64 +1,50 @@
 [gd_scene format=3 uid="uid://bhlccgk1jknpg"]
 
 [ext_resource type="Script" uid="uid://btfxe5dkhi87n" path="res://Scripts/Menu.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://cwohkltoaubct" path="res://Sprites/ui/play_button/play1.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://dtsy7utaxwbn4" path="res://Sprites/ui/play_button/play2.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://d2m4si8vyitk5" path="res://Sprites/ui/test_button/test_button1.png" id="9"]
-[ext_resource type="Texture2D" uid="uid://iokslmi1d8g3" path="res://Sprites/ui/test_button/test_button2.png" id="10"]
-[ext_resource type="AudioStream" uid="uid://dj6n2blxdfqno" path="res://Sounds/bell_ding.ogg" id="11"]
+[ext_resource type="PackedScene" uid="uid://cnb2nbepksohy" path="res://Scenes/Note.tscn" id="2_6pedr"]
+[ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="3_syfuq"]
 
 [node name="Menu" type="Node2D" unique_id=805953146]
 script = ExtResource("1")
 
-[node name="Start_Button" type="TextureButton" parent="." unique_id=1330056671]
-offset_left = 54.0
-offset_top = 85.0
-offset_right = 182.0
-offset_bottom = 133.0
-texture_normal = ExtResource("2")
-texture_pressed = ExtResource("2")
-texture_hover = ExtResource("3")
-metadata/_edit_use_anchors_ = true
+[node name="Info" type="Label" parent="." unique_id=232482931]
+offset_left = 246.0
+offset_top = 179.0
+offset_right = 1925.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+theme_override_colors/font_outline_color = Color(0.17842078, 0.013227871, 0.61232275, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "Press Spacebar to Start"
 
-[node name="HSlider" type="HSlider" parent="." unique_id=143363984]
-offset_left = 13.0
-offset_top = 35.0
-offset_right = 85.0
-offset_bottom = 51.0
-max_value = 1.0
-step = 0.05
-value = 1.0
+[node name="Title" type="Label" parent="." unique_id=106698575]
+offset_left = 340.0
+offset_top = 56.0
+offset_right = 2019.0
+offset_bottom = 261.0
+theme_override_colors/font_outline_color = Color(0.17842078, 0.013227871, 0.61232275, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 80
+text = "MusicMaker"
 
-[node name="Label" type="Label" parent="." unique_id=173268840]
-offset_left = 92.0
-offset_top = 33.0
-offset_right = 140.0
-offset_bottom = 56.0
-text = "sound"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Note" parent="." unique_id=974388935 instance=ExtResource("2_6pedr")]
+position = Vector2(147, 576)
+script = null
 
-[node name="Label2" type="Label" parent="." unique_id=1756033746]
-offset_left = 34.0
-offset_top = 7.0
-offset_right = 206.0
-offset_bottom = 30.0
-text = "controls: spacebar"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Note2" parent="." unique_id=606327908 instance=ExtResource("2_6pedr")]
+position = Vector2(46, 481)
+script = null
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1745427302]
-offset_left = 153.0
-offset_top = 36.0
-offset_right = 201.0
-offset_bottom = 54.0
-texture_normal = ExtResource("9")
-texture_pressed = ExtResource("9")
-texture_hover = ExtResource("10")
+[node name="Note3" parent="." unique_id=644432472 instance=ExtResource("2_6pedr")]
+position = Vector2(1025, 49)
+script = null
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton" unique_id=1408130424]
-stream = ExtResource("11")
+[node name="Note4" parent="." unique_id=320232173 instance=ExtResource("2_6pedr")]
+position = Vector2(1102, 100)
+script = null
 
-[connection signal="button_down" from="Start_Button" to="." method="_on_Start_Button_button_down"]
-[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[node name="Player" parent="." unique_id=560582400 instance=ExtResource("3_syfuq")]
+position = Vector2(721, 451)
+scale = Vector2(0.5, 0.5)
+script = null

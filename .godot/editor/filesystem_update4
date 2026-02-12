@@ -8,3 +8,6 @@ res://Charts/song1.json
 res://Scripts/Global.gd
 res://Scripts/ChartLoader.gd
 res://Scenes/Player.tscn
+res://Scripts/Menu.gd
+res://Scenes/Menu.tscn
+res://Frames/note_frames.tres
