@@ -6,7 +6,7 @@ extends Area2D
 const staffWidth := 200
 const staffHeight := 157
 
-var TARGET_X := 0
+var TARGET_X := -10
 var DIST_TO_TARGET = staffWidth * 2.5
 var SPAWN_X = TARGET_X + DIST_TO_TARGET
 var noteY = -staffHeight

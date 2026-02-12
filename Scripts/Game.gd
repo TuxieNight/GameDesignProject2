@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var beats_visible := 8.0
+@export_file("*.json") var chart_path: String
 
 var max_health := 7
 var player_health := max_health
@@ -46,7 +47,7 @@ func duration_to_beats(duration_name: String, beat_unit: int) -> float:
 
 func _ready():
 	chart = ChartLoader.new()
-	chart.load_chart("res://Charts/song1.json")
+	chart.load_chart(chart_path)
 
 	sec_per_beat = 60.0 / chart.bpm
 	$Conductor.bpm = chart.bpm

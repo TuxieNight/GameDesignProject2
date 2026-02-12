@@ -1,7 +1,4 @@
-res://Scenes/End.tscn
-res://Charts/song1.json
-res://Scripts/Conductor.gd
-res://Scripts/Note.gd
-res://Scenes/Note.tscn
-res://Scenes/PlayableSheet.tscn
 res://Scenes/Game.tscn
+res://Charts/lambSong.json
+res://Scripts/Game.gd
+res://Scripts/Note.gd

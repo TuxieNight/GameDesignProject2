@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1aom4j4o80rf"]
 
-[ext_resource type="AudioStream" uid="uid://j5fa0h38ra1l" path="res://Sounds/song1.mp3" id="3_fgofq"]
+[ext_resource type="AudioStream" uid="uid://bay6w6g7b7gwx" path="res://Sounds/lambSong.mp3" id="3_fgofq"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bbf6mgfsuavgx" path="res://Scenes/HeartContainer.tscn" id="7_2irst"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
@@ -10,6 +10,7 @@
 
 [node name="Game" type="Node2D" unique_id=897590322]
 script = ExtResource("6")
+chart_path = "res://Charts/lambSong.json"
 
 [node name="Label" type="Label" parent="." unique_id=2052336268]
 text = "0"
