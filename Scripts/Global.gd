@@ -37,8 +37,3 @@ func set_score(new):
 		grade = "D-"
 	else:
 		grade = "F"
-		
-
-
-func _on_Conductor_beat(position: Variant) -> void:
-	pass # Replace with function body.

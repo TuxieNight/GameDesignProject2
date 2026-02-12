@@ -5,3 +5,6 @@ res://Scripts/Note.gd
 res://Scenes/Note.tscn
 res://Scripts/Conductor.gd
 res://Charts/song1.json
+res://Scripts/Global.gd
+res://Scripts/ChartLoader.gd
+res://Scenes/Player.tscn

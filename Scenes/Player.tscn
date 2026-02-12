@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="GDScript" id="GDScript_qbkls"]
 script/source = "extends AnimatedSprite2D
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(\"ui_accept\"):
 		frame = get_random_one_to_three()
 	if Input.is_action_just_released(\"ui_accept\"):

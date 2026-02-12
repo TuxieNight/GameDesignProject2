@@ -42,7 +42,7 @@ var conductor
 var game: Node
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var t = conductor.song_position
 	var time_until_hit = note_time - t
 	position.x = TARGET_X + time_until_hit * speed
@@ -56,7 +56,7 @@ func _physics_process(delta):
 			finish_hold()
 
 
-func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, conductor_ref, bar: Node2D, beats_visible_val):
+func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, conductor_ref, beats_visible_val):
 	game = gameRef
 	conductor = conductor_ref
 	beats_visible = beats_visible_val

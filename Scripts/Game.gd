@@ -21,10 +21,8 @@ var song_position_in_beats = 0
 var last_spawned_beat = 0
 var first_note_time
 
-var lane = 0
 var rand = 0
 var note = load("res://Scenes/Note.tscn")
-var instance
 
 var chart: ChartLoader
 var sec_per_beat: float
@@ -63,7 +61,7 @@ func _input(event):
 		if get_tree().change_scene_to_file("res://Scenes/Menu.tscn") != OK:
 			print ("Error changing scene to Menu")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var song_time = $Conductor.song_position
 	var first_note = chart.notes[0]
 	var first_beat = first_note["beat"]
@@ -105,7 +103,6 @@ func _spawn_chart_note(lane, duration, note_time):
 		sec_per_beat,
 		note_time,
 		$Conductor,
-		$PlayableSheet/Bar,
 		beats_visible
 	)
 	$PlayableSheet.add_child(instance)
