@@ -1,13 +1,2 @@
-res://Scenes/Game.tscn
-res://Scripts/Game.gd
-res://Scripts/Bar.gd
-res://Scripts/Note.gd
-res://Scenes/Note.tscn
-res://Scripts/Conductor.gd
-res://Charts/song1.json
-res://Scripts/Global.gd
-res://Scripts/ChartLoader.gd
-res://Scenes/Player.tscn
-res://Scripts/Menu.gd
-res://Scenes/Menu.tscn
-res://Frames/note_frames.tres
+res://Scenes/End.tscn
+res://Scripts/End.gd

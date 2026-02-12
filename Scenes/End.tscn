@@ -1,143 +1,179 @@
 [gd_scene format=3 uid="uid://dlj2qy78imkef"]
 
-[ext_resource type="Texture2D" uid="uid://bm4wogspcd2ai" path="res://Sprites/ui/play_again_button/play_again1.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://cn0yckw0obyv1" path="res://Sprites/ui/back_to_menu_button/back_to_menu2.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://d1yu6fqxnko03" path="res://Sprites/ui/back_to_menu_button/back_to_menu1.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://br5git5cyhmqs" path="res://Sprites/ui/play_again_button/play_again2.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://cnb2nbepksohy" path="res://Scenes/Note.tscn" id="2_70j8v"]
+[ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="3_03b8h"]
 [ext_resource type="Script" uid="uid://chrs7sgunqa6m" path="res://Scripts/End.gd" id="6"]
 
 [node name="End" type="Node2D" unique_id=1527785001]
 script = ExtResource("6")
 
-[node name="PlayAgain" type="TextureButton" parent="." unique_id=353535635]
-offset_left = 323.0
-offset_top = 63.0
-offset_right = 419.0
-offset_bottom = 95.0
-texture_normal = ExtResource("1")
-texture_pressed = ExtResource("1")
-texture_hover = ExtResource("4")
-
-[node name="BackToMenu" type="TextureButton" parent="." unique_id=1538903093]
-offset_left = 321.0
-offset_top = 105.0
-offset_right = 417.0
-offset_bottom = 137.0
-texture_normal = ExtResource("3")
-texture_pressed = ExtResource("3")
-texture_hover = ExtResource("2")
-
 [node name="GradeLabel" type="Label" parent="." unique_id=871920757]
+visible = false
 offset_left = 63.0
-offset_top = 168.0
+offset_top = 456.0
 offset_right = 112.0
-offset_bottom = 191.0
+offset_bottom = 479.0
 text = "grade:"
 vertical_alignment = 1
 
 [node name="GradeNumber" type="Label" parent="." unique_id=346692580]
+visible = false
 offset_left = 129.0
-offset_top = 179.0
+offset_top = 467.0
 offset_right = 130.0
-offset_bottom = 202.0
+offset_bottom = 490.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1364564459]
+visible = false
 offset_left = 61.0
-offset_top = 95.0
+offset_top = 383.0
 offset_right = 150.0
-offset_bottom = 118.0
+offset_bottom = 406.0
 text = "final score: "
 vertical_alignment = 1
 
 [node name="ScoreNumber" type="Label" parent="." unique_id=659136077]
+visible = false
 offset_left = 157.0
-offset_top = 105.0
+offset_top = 393.0
 offset_right = 158.0
-offset_bottom = 128.0
+offset_bottom = 416.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ComboLabel" type="Label" parent="." unique_id=1494932437]
+visible = false
 offset_left = 63.0
-offset_top = 132.0
+offset_top = 420.0
 offset_right = 158.0
-offset_bottom = 155.0
+offset_bottom = 443.0
 text = "max combo:"
 vertical_alignment = 1
 
 [node name="ComboNumber" type="Label" parent="." unique_id=81183365]
+visible = false
 offset_left = 172.0
-offset_top = 141.0
+offset_top = 429.0
 offset_right = 173.0
-offset_bottom = 164.0
+offset_bottom = 452.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="GreatLabel" type="Label" parent="." unique_id=1223614696]
-offset_left = 27.0
-offset_top = 226.0
-offset_right = 72.0
-offset_bottom = 249.0
+visible = false
+offset_left = 211.0
+offset_top = 532.0
+offset_right = 256.0
+offset_bottom = 555.0
 text = "great:"
 vertical_alignment = 1
 
 [node name="GreatNumber" type="Label" parent="." unique_id=614205630]
-offset_left = 85.0
-offset_top = 232.0
-offset_right = 86.0
-offset_bottom = 255.0
+visible = false
+offset_left = 269.0
+offset_top = 538.0
+offset_right = 270.0
+offset_bottom = 561.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="GoodLabel" type="Label" parent="." unique_id=1804358293]
-offset_left = 175.0
-offset_top = 226.0
-offset_right = 218.0
-offset_bottom = 249.0
+visible = false
+offset_left = 359.0
+offset_top = 532.0
+offset_right = 402.0
+offset_bottom = 555.0
 text = "good:"
 vertical_alignment = 1
 
 [node name="GoodNumber" type="Label" parent="." unique_id=1568512858]
-offset_left = 229.0
-offset_top = 234.0
-offset_right = 230.0
-offset_bottom = 257.0
+visible = false
+offset_left = 413.0
+offset_top = 540.0
+offset_right = 414.0
+offset_bottom = 563.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="OkayLabel" type="Label" parent="." unique_id=1734417107]
-offset_left = 351.0
-offset_top = 226.0
-offset_right = 393.0
-offset_bottom = 249.0
+visible = false
+offset_left = 535.0
+offset_top = 532.0
+offset_right = 577.0
+offset_bottom = 555.0
 text = "okay:"
 vertical_alignment = 1
 
 [node name="OkayNumber" type="Label" parent="." unique_id=266415021]
-offset_left = 400.0
-offset_top = 235.0
-offset_right = 401.0
-offset_bottom = 258.0
+visible = false
+offset_left = 584.0
+offset_top = 541.0
+offset_right = 585.0
+offset_bottom = 564.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="MissedLabel" type="Label" parent="." unique_id=1760042718]
-offset_left = 558.0
-offset_top = 231.0
-offset_right = 617.0
-offset_bottom = 254.0
+visible = false
+offset_left = 742.0
+offset_top = 537.0
+offset_right = 801.0
+offset_bottom = 560.0
 text = "missed:"
 vertical_alignment = 1
 
 [node name="MissedNumber" type="Label" parent="." unique_id=1061677220]
-offset_left = 630.0
-offset_top = 246.0
-offset_right = 631.0
-offset_bottom = 269.0
+visible = false
+offset_left = 814.0
+offset_top = 552.0
+offset_right = 815.0
+offset_bottom = 575.0
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
-[connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]
+[node name="GameOver" type="Label" parent="." unique_id=1388900849]
+offset_left = 340.0
+offset_top = 76.0
+offset_right = 796.0
+offset_bottom = 186.0
+theme_override_colors/font_outline_color = Color(0.1764706, 0.011764706, 0.6117647, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 80
+text = "Game Over!"
+
+[node name="Info" type="Label" parent="." unique_id=1103948988]
+offset_left = -7.0
+offset_top = 205.0
+offset_right = 1141.0
+offset_bottom = 374.0
+theme_override_colors/font_color = Color(0.7176471, 0.7176471, 0.7176471, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.011764706, 0.6117647, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "Press Spacebar to
+Return to Main Menu"
+horizontal_alignment = 1
+
+[node name="Note" parent="." unique_id=974388935 instance=ExtResource("2_70j8v")]
+position = Vector2(147, 576)
+script = null
+
+[node name="Note2" parent="." unique_id=781429734 instance=ExtResource("2_70j8v")]
+position = Vector2(46, 481)
+script = null
+
+[node name="Note3" parent="." unique_id=1440462575 instance=ExtResource("2_70j8v")]
+position = Vector2(1025, 49)
+script = null
+
+[node name="Note4" parent="." unique_id=1881415520 instance=ExtResource("2_70j8v")]
+position = Vector2(1102, 100)
+script = null
+
+[node name="Player" parent="." unique_id=560582400 instance=ExtResource("3_03b8h")]
+position = Vector2(944, 470.00003)
+rotation = -1.7156587
+scale = Vector2(0.5, 0.5)
+script = null
