@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://d1aom4j4o80rf"]
 
-[ext_resource type="AudioStream" uid="uid://bay6w6g7b7gwx" path="res://Sounds/lambSong.mp3" id="3_fgofq"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bbf6mgfsuavgx" path="res://Scenes/HeartContainer.tscn" id="7_2irst"]
-[ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
+[ext_resource type="AudioStream" uid="uid://3l5qpueiyeaw" path="res://Sounds/C3.wav" id="7_bf53h"]
+[ext_resource type="AudioStream" uid="uid://jpf77fgf1tvd" path="res://Sounds/C4.wav" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
+[ext_resource type="Script" uid="uid://dcw87553mbbm1" path="res://Scripts/ChartSynthPlayer.gd" id="8_71axn"]
 [ext_resource type="PackedScene" uid="uid://bo0k2vgkjaifw" path="res://Scenes/Enemy.tscn" id="8_bf53h"]
+[ext_resource type="AudioStream" uid="uid://c488r88kdurjo" path="res://Sounds/C5.wav" id="9_71axn"]
 [ext_resource type="PackedScene" uid="uid://sf6g6xev5qy0" path="res://Scenes/PlayableSheet.tscn" id="9_bf53h"]
 
 [node name="Game" type="Node2D" unique_id=897590322]
@@ -21,11 +23,6 @@ offset_top = 35.0
 offset_right = 47.0
 offset_bottom = 58.0
 horizontal_alignment = 1
-
-[node name="Conductor" parent="." unique_id=237339114 instance=ExtResource("8")]
-stream = ExtResource("3_fgofq")
-volume_db = -15.0
-bpm = 115
 
 [node name="Player" parent="." unique_id=560582400 instance=ExtResource("8_2irst")]
 z_index = 5
@@ -49,7 +46,12 @@ position = Vector2(259, 496)
 [node name="Bar" parent="PlayableSheet" index="0" unique_id=403500746 node_paths=PackedStringArray("game")]
 game = NodePath("../..")
 
-[connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
-[connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]
+[node name="ChartSynthPlayer" type="Node" parent="." unique_id=946139222]
+script = ExtResource("8_71axn")
+C3 = ExtResource("7_bf53h")
+C4 = ExtResource("7_fgofq")
+C5 = ExtResource("9_71axn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ChartSynthPlayer" unique_id=555282522]
 
 [editable path="PlayableSheet"]

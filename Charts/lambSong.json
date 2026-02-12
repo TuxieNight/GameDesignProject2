@@ -1,5 +1,5 @@
 {
-  "bpm": 111,
+  "bpm": 115,
   "offset": 0.0,
   "time_signature": "4/4",
 
@@ -21,20 +21,21 @@
 	{ "beat": 14.0, "note": "G4", "duration": "quarter" },
 	{ "beat": 15.0, "note": "G4", "duration": "half" },
 
-	{ "beat": 17.5, "note": "E4", "duration": "quarter" },
-	{ "beat": 18.5, "note": "D4", "duration": "quarter" },
-	{ "beat": 19.5, "note": "C4", "duration": "quarter" },
-	{ "beat": 20.5, "note": "D4", "duration": "quarter" },
+	{ "beat": 17.0, "note": "E4", "duration": "quarter" },
+	{ "beat": 18.0, "note": "D4", "duration": "quarter" },
+	{ "beat": 19.0, "note": "C4", "duration": "quarter" },
+	{ "beat": 20.0, "note": "D4", "duration": "quarter" },
 
-	{ "beat": 21.5, "note": "E4", "duration": "quarter" },
-	{ "beat": 22.5, "note": "E4", "duration": "quarter" },
-	{ "beat": 23.5, "note": "E4", "duration": "quarter" },
+	{ "beat": 21.0, "note": "E4", "duration": "quarter" },
+	{ "beat": 22.0, "note": "E4", "duration": "quarter" },
+	{ "beat": 23.0, "note": "E4", "duration": "quarter" },
+	{ "beat": 24.0, "note": "E4", "duration": "quarter" },
 
-	{ "beat": 25.5, "note": "D4", "duration": "quarter" },
-	{ "beat": 26.5, "note": "D4", "duration": "quarter" },
-	{ "beat": 27.5, "note": "E4", "duration": "quarter" },
-	{ "beat": 28.5, "note": "D4", "duration": "quarter" },
+	{ "beat": 25.0, "note": "D4", "duration": "quarter" },
+	{ "beat": 26.0, "note": "D4", "duration": "quarter" },
+	{ "beat": 27.0, "note": "E4", "duration": "quarter" },
+	{ "beat": 28.0, "note": "D4", "duration": "quarter" },
 
-	{ "beat": 29.5, "note": "C4", "duration": "whole" }
+	{ "beat": 29.0, "note": "C4", "duration": "whole" }
   ]
 }

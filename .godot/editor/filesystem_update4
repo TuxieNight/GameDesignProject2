@@ -1,4 +1,4 @@
 res://Scenes/Game.tscn
-res://Charts/lambSong.json
+res://Scripts/ChartSynthPlayer.gd
 res://Scripts/Game.gd
-res://Scripts/Note.gd
+res://Scripts/ChartLoader.gd

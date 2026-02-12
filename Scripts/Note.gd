@@ -19,7 +19,6 @@ const DURATION_TO_FRAME := {
 	4.0: 2,   # whole
 	0.5: 3,   # eighth
 	0.25: 4   # sixteenth
-	# special frames will involve +5 (like C4 and A5)
 }
 
 var speed := 0.0
@@ -34,57 +33,61 @@ var eval_hold := false
 var hold_release_window := 0.1
 var initial_hit_score := 0
 
-var conductor
 var game: Node
 
 
 func _physics_process(_delta):
-	var t = conductor.song_position
+	# REPLACEMENT: use game.song_time instead of conductor.song_position
+	var t = game.song_time
 	var time_until_hit = note_time - t
+
+	# Move note
 	position.x = TARGET_X + time_until_hit * speed
 	
+	# Missed note
 	if !hit and time_until_hit < 0:
-			queue_free()
-			game.reset_combo()
+		queue_free()
+		game.reset_combo()
 
+	# Hold logic
 	if is_hold and is_holding:
-		if conductor.song_position >= hold_end_time - hold_release_window and !eval_hold:
+		if t >= hold_end_time - hold_release_window and !eval_hold:
 			finish_hold()
 
 
-func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, conductor_ref, beats_visible_val):
+func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, song_time_at_spawn, beats_visible_val):
 	game = gameRef
-	conductor = conductor_ref
 	beats_visible = beats_visible_val
 	note_time = spawn_time
 	
 	var travel_time = beats_visible * sec_per_beat
 	speed = DIST_TO_TARGET / travel_time
 
+	# STAFF LANES (your exact mapping preserved)
 	var STAFF_LANES = {
-	"C4": noteSpacing*13 + noteY,
-	"D4": noteSpacing*12 + noteY,
-	"E4": noteSpacing*11 + noteY,
-	"F4": noteSpacing*10 + noteY,
-	"G4": noteSpacing*9 + noteY,
-	"A4": noteSpacing*8 + noteY,
-	"B4": noteSpacing*7 + noteY,
-	"C5": noteSpacing*6 + noteY,
-	"D5": noteSpacing*5 + noteY,
-	"E5": noteSpacing*4 + noteY,
-	"F5": noteSpacing*3 + noteY,
-	"G5": noteSpacing*2 + noteY,
-	"A5": noteSpacing*1 + noteY,
-	"B5": noteSpacing*0 + noteY,
-	"C6": noteSpacing*-1 + noteY,
-	"D6": noteSpacing*-2 + noteY,
-	"E6": noteSpacing*-3 + noteY,
-	"F6": noteSpacing*-4 + noteY,
-	"G6": noteSpacing*-5 + noteY,
-	"A6": noteSpacing*-6 + noteY,
-	"B6": noteSpacing*-7 + noteY,
-	"C7": noteSpacing*-8 + noteY
-}
+		"C4": noteSpacing*13 + noteY,
+		"D4": noteSpacing*12 + noteY,
+		"E4": noteSpacing*11 + noteY,
+		"F4": noteSpacing*10 + noteY,
+		"G4": noteSpacing*9 + noteY,
+		"A4": noteSpacing*8 + noteY,
+		"B4": noteSpacing*7 + noteY,
+		"C5": noteSpacing*6 + noteY,
+		"D5": noteSpacing*5 + noteY,
+		"E5": noteSpacing*4 + noteY,
+		"F5": noteSpacing*3 + noteY,
+		"G5": noteSpacing*2 + noteY,
+		"A5": noteSpacing*1 + noteY,
+		"B5": noteSpacing*0 + noteY,
+		"C6": noteSpacing*-1 + noteY,
+		"D6": noteSpacing*-2 + noteY,
+		"E6": noteSpacing*-3 + noteY,
+		"F6": noteSpacing*-4 + noteY,
+		"G6": noteSpacing*-5 + noteY,
+		"A6": noteSpacing*-6 + noteY,
+		"B6": noteSpacing*-7 + noteY,
+		"C7": noteSpacing*-8 + noteY
+	}
 
 	# HOLD SETUP
 	hold_duration_beats = duration_beats
@@ -92,22 +95,18 @@ func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat,
 	if is_hold:
 		hold_end_time = spawn_time + duration_beats * sec_per_beat
 
-	var rounded : float
-	rounded = snapped(duration_beats, 0.01)
+	var rounded : float = snapped(duration_beats, 0.01)
 
 	# SPRITE FRAME
 	if DURATION_TO_FRAME.has(rounded):
 		var special = 0
-#		if note_name == "C4" or note_name == "A5":
-#			special += 5
 		$AnimatedSprite.frame = DURATION_TO_FRAME[rounded] + special
 
-	# POSITION
+	# POSITION AT SPAWN
 	if STAFF_LANES.has(note_name):
 		position = Vector2(SPAWN_X, STAFF_LANES[note_name])
 	else:
 		printerr("Unknown note: ", note_name)
-
 
 
 # --- HOLD LOGIC ---
@@ -125,7 +124,8 @@ func finish_hold():
 
 
 func release_hold():
-	if conductor.song_position >= hold_end_time - hold_release_window:
+	var t = game.song_time
+	if t >= hold_end_time - hold_release_window:
 		finish_hold()
 		return
 

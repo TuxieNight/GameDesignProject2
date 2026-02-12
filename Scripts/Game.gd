@@ -15,19 +15,112 @@ var good = 0
 var okay = 0
 var missed = 0
 
-var bpm = 115
+var bpm: float
+var sec_per_beat: float
 
-var song_position = 0.0
-var song_position_in_beats = 0
-var last_spawned_beat = 0
-var first_note_time
-
-var rand = 0
-var note = load("res://Scenes/Note.tscn")
+var song_time := 0.0
+var playing_audio := false
 
 var chart: ChartLoader
-var sec_per_beat: float
 var next_note
+var first_note_time: float
+
+var note_scene := load("res://Scenes/Note.tscn")
+
+@onready var synth := $ChartSynthPlayer
+
+
+# ---------------------------------------------------------
+# READY
+# ---------------------------------------------------------
+
+func _ready():
+	chart = ChartLoader.new()
+	chart.load_chart(chart_path)
+
+	# Give chart to synth
+	synth.load_chart(chart_path)
+
+	bpm = chart.bpm
+	sec_per_beat = 60.0 / bpm
+
+	# Start time BEFORE the first note reaches the bar
+	song_time = -beats_visible * sec_per_beat
+
+	next_note = chart.get_next_note()
+
+	var first = chart.notes[0]
+	first_note_time = first["beat"] * sec_per_beat + chart.offset
+
+	$HeartContainer/Layout.initialize(max_health, player_health)
+
+
+# ---------------------------------------------------------
+# INPUT
+# ---------------------------------------------------------
+
+func _input(event):
+	if event.is_action("escape"):
+		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+
+
+# ---------------------------------------------------------
+# MAIN LOOP
+# ---------------------------------------------------------
+
+func _physics_process(delta):
+	song_time += delta
+
+	# Start audio exactly once
+	if !playing_audio and song_time >= first_note_time:
+		playing_audio = true
+		synth.play()
+
+	# Spawn notes
+	while next_note != null:
+		var beat = next_note["beat"]
+		var note_time = beat * sec_per_beat + chart.offset
+
+		var travel_time = beats_visible * sec_per_beat
+		var spawn_time = note_time - travel_time
+
+		if song_time >= spawn_time:
+			_spawn_chart_note(
+				next_note["note"],
+				next_note["duration"],
+				note_time
+			)
+
+			chart.advance()
+			next_note = chart.get_next_note()
+		else:
+			break
+
+
+# ---------------------------------------------------------
+# SPAWN NOTE
+# ---------------------------------------------------------
+
+func _spawn_chart_note(lane, duration, note_time):
+	var duration_beats = duration_to_beats(duration, chart.beat_unit)
+	var instance = note_scene.instantiate()
+
+	instance.initialize(
+		self,
+		lane,
+		duration_beats,
+		sec_per_beat,
+		note_time,
+		song_time,
+		beats_visible
+	)
+
+	$PlayableSheet.add_child(instance)
+
+
+# ---------------------------------------------------------
+# DURATION → BEATS
+# ---------------------------------------------------------
 
 const DURATION_NAME_TO_NOTE_VALUE := {
 	"whole": 4.0,
@@ -45,69 +138,9 @@ func duration_to_beats(duration_name: String, beat_unit: int) -> float:
 	return note_value / (4.0 / beat_unit)
 
 
-func _ready():
-	chart = ChartLoader.new()
-	chart.load_chart(chart_path)
-
-	sec_per_beat = 60.0 / chart.bpm
-	$Conductor.bpm = chart.bpm
-	$Conductor.song_position = -beats_visible * sec_per_beat
-
-	next_note = chart.get_next_note()
-	
-	$HeartContainer/Layout.initialize(max_health, player_health)
-
-func _input(event):
-	if event.is_action("escape"):
-		if get_tree().change_scene_to_file("res://Scenes/Menu.tscn") != OK:
-			print ("Error changing scene to Menu")
-
-func _physics_process(_delta):
-	var song_time = $Conductor.song_position
-	var first_note = chart.notes[0]
-	var first_beat = first_note["beat"]
-	first_note_time = first_beat * sec_per_beat + chart.offset
-
-	
-	if song_time >= first_note_time and !$Conductor.playing_audio:
-		$Conductor.play()
-		$Conductor.playing_audio = true
-
-	while next_note != null:
-		var beat = next_note["beat"]
-		var note_time = beat * sec_per_beat + chart.offset
-		
-		var travel_time = beats_visible * sec_per_beat
-		var spawn_time = note_time - travel_time
-
-
-		if song_time >= spawn_time:
-			_spawn_chart_note(
-				next_note["note"],
-				next_note["duration"],
-				note_time
-			)
-
-			chart.advance()
-			next_note = chart.get_next_note()
-		else:
-			break
-
-
-func _spawn_chart_note(lane, duration, note_time):
-	var duration_beats = duration_to_beats(duration, chart.beat_unit)
-	var instance = note.instantiate()
-	instance.initialize(
-		self,
-		lane,
-		duration_beats,
-		sec_per_beat,
-		note_time,
-		$Conductor,
-		beats_visible
-	)
-	$PlayableSheet.add_child(instance)
-
+# ---------------------------------------------------------
+# SCORING / HEALTH
+# ---------------------------------------------------------
 
 func increment_score(by):
 	if by > 0:
@@ -124,13 +157,12 @@ func increment_score(by):
 	else:
 		missed += 1
 	
-	
 	score += by * combo
 	$Label.text = str(score)
+
 	if combo > 0:
 		$Combo.text = str(combo) + " combo!"
-		if combo > max_combo:
-			max_combo = combo
+		max_combo = max(max_combo, combo)
 	else:
 		$Combo.text = ""
 
@@ -140,6 +172,7 @@ func reset_combo():
 	$Combo.text = ""
 	apply_damage(1)
 
+
 func apply_damage(amount):
 	player_health = max(player_health - amount, 0)
 	$HeartContainer/Layout.set_health(player_health)
@@ -147,7 +180,6 @@ func apply_damage(amount):
 	if player_health <= 0:
 		game_over()
 
+
 func game_over():
-	var result = get_tree().change_scene_to_file("res://Scenes/End.tscn")
-	if result != OK:
-		print("Error changing scene to End")
+	get_tree().change_scene_to_file("res://Scenes/End.tscn")
