@@ -1,2 +1,7 @@
 res://Scenes/End.tscn
-res://Scripts/End.gd
+res://Charts/song1.json
+res://Scripts/Conductor.gd
+res://Scripts/Note.gd
+res://Scenes/Note.tscn
+res://Scenes/PlayableSheet.tscn
+res://Scenes/Game.tscn

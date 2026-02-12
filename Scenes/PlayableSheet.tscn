@@ -2,12 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://bhyghxnnjv5j3" path="res://Scenes/Bar.tscn" id="1_wjxwv"]
 [ext_resource type="PackedScene" uid="uid://bhuqa2yrof2wj" path="res://Scenes/Sheet.tscn" id="2_rwvgw"]
+[ext_resource type="Texture2D" uid="uid://brs0hoik6kugv" path="res://Sprites/ourArt/Paper.png" id="3_rwvgw"]
 
 [node name="PlayableSheet" type="Node2D" unique_id=1095358049]
 
 [node name="Bar" parent="." unique_id=403500746 instance=ExtResource("1_wjxwv")]
 z_index = 1
+scale = Vector2(0.5, 1.441)
 input = "spacebar"
 
 [node name="Sheet" parent="." unique_id=515930846 instance=ExtResource("2_rwvgw")]
 position = Vector2(12, 0)
+
+[node name="Paper" type="Sprite2D" parent="." unique_id=1459236766]
+z_index = -1
+position = Vector2(253, 0)
+scale = Vector2(0.5400012, 1)
+texture = ExtResource("3_rwvgw")

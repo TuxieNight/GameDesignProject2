@@ -173,7 +173,7 @@ position = Vector2(1102, 100)
 script = null
 
 [node name="Player" parent="." unique_id=560582400 instance=ExtResource("3_03b8h")]
-position = Vector2(944, 470.00003)
+position = Vector2(944.00006, 470.00003)
 rotation = -1.7156587
 scale = Vector2(0.5, 0.5)
 script = null

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1aom4j4o80rf"]
 
-[ext_resource type="AudioStream" uid="uid://bth1k51g43nor" path="res://Sounds/song.ogg" id="5"]
+[ext_resource type="AudioStream" uid="uid://j5fa0h38ra1l" path="res://Sounds/song1.mp3" id="3_fgofq"]
 [ext_resource type="Script" uid="uid://dfgf7xhulwms0" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bbf6mgfsuavgx" path="res://Scenes/HeartContainer.tscn" id="7_2irst"]
 [ext_resource type="PackedScene" uid="uid://bxovw8m3pxnrq" path="res://Scenes/Conductor.tscn" id="8"]
@@ -22,27 +22,28 @@ offset_bottom = 58.0
 horizontal_alignment = 1
 
 [node name="Conductor" parent="." unique_id=237339114 instance=ExtResource("8")]
-stream = ExtResource("5")
+stream = ExtResource("3_fgofq")
 volume_db = -15.0
 bpm = 115
 
 [node name="Player" parent="." unique_id=560582400 instance=ExtResource("8_2irst")]
 z_index = 5
-position = Vector2(188, 454)
-scale = Vector2(0.5, 0.5)
+position = Vector2(150.00002, 492)
+scale = Vector2(0.45, 0.45)
 
 [node name="HeartContainer" parent="." unique_id=1367501383 instance=ExtResource("7_2irst")]
-offset_left = 217.0
-offset_top = 89.0
-offset_right = 217.0
-offset_bottom = 89.0
+offset_left = 83.0
+offset_top = 64.0
+offset_right = 83.0
+offset_bottom = 64.0
 
 [node name="Enemy" parent="." unique_id=951707960 instance=ExtResource("8_bf53h")]
-position = Vector2(937, 423)
-scale = Vector2(0.6, 0.6)
+z_index = 1
+position = Vector2(961.00006, 467.00003)
+scale = Vector2(0.545, 0.545)
 
 [node name="PlayableSheet" parent="." unique_id=1095358049 instance=ExtResource("9_bf53h")]
-position = Vector2(259, 288)
+position = Vector2(259, 496)
 
 [node name="Bar" parent="PlayableSheet" index="0" unique_id=403500746 node_paths=PackedStringArray("game")]
 game = NodePath("../..")

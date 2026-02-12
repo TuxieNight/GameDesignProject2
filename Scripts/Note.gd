@@ -13,10 +13,6 @@ var noteY = -staffHeight
 var noteSpacing = 19
 var note_time
 
-
-# --- TREBLE STAFF LANES (adjust Y values to match your scene) ---
-var STAFF_LANES := { }
-
 const DURATION_TO_FRAME := {
 	1.0: 0,   # quarter
 	2.0: 1,   # half
@@ -65,21 +61,30 @@ func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat,
 	var travel_time = beats_visible * sec_per_beat
 	speed = DIST_TO_TARGET / travel_time
 
-	STAFF_LANES = {
-		"C4": noteSpacing*13 + noteY,
-		"D4": noteSpacing*12 + noteY,
-		"E4": noteSpacing*11 + noteY,
-		"F4": noteSpacing*10 + noteY,
-		"G4": noteSpacing*9 + noteY,
-		"A4": noteSpacing*8 + noteY,
-		"B4": noteSpacing*7 + noteY,
-		"C5": noteSpacing*6 + noteY,
-		"D5": noteSpacing*5 + noteY,
-		"E5": noteSpacing*4 + noteY,
-		"F5": noteSpacing*3 + noteY,
-		"G5": noteSpacing*2 + noteY,
-		"A5": noteSpacing*1 + noteY
-	}
+	var STAFF_LANES = {
+	"C4": noteSpacing*13 + noteY,
+	"D4": noteSpacing*12 + noteY,
+	"E4": noteSpacing*11 + noteY,
+	"F4": noteSpacing*10 + noteY,
+	"G4": noteSpacing*9 + noteY,
+	"A4": noteSpacing*8 + noteY,
+	"B4": noteSpacing*7 + noteY,
+	"C5": noteSpacing*6 + noteY,
+	"D5": noteSpacing*5 + noteY,
+	"E5": noteSpacing*4 + noteY,
+	"F5": noteSpacing*3 + noteY,
+	"G5": noteSpacing*2 + noteY,
+	"A5": noteSpacing*1 + noteY,
+	"B5": noteSpacing*0 + noteY,
+	"C6": noteSpacing*-1 + noteY,
+	"D6": noteSpacing*-2 + noteY,
+	"E6": noteSpacing*-3 + noteY,
+	"F6": noteSpacing*-4 + noteY,
+	"G6": noteSpacing*-5 + noteY,
+	"A6": noteSpacing*-6 + noteY,
+	"B6": noteSpacing*-7 + noteY,
+	"C7": noteSpacing*-8 + noteY
+}
 
 	# HOLD SETUP
 	hold_duration_beats = duration_beats
@@ -87,18 +92,21 @@ func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat,
 	if is_hold:
 		hold_end_time = spawn_time + duration_beats * sec_per_beat
 
+	var rounded : float
+	rounded = snapped(duration_beats, 0.01)
+
 	# SPRITE FRAME
-	if DURATION_TO_FRAME.has(duration_beats):
+	if DURATION_TO_FRAME.has(rounded):
 		var special = 0
-		if note_name == "C4" or note_name == "A5":
-			special += 5
-		$AnimatedSprite.frame = DURATION_TO_FRAME[duration_beats] + special
+#		if note_name == "C4" or note_name == "A5":
+#			special += 5
+		$AnimatedSprite.frame = DURATION_TO_FRAME[rounded] + special
 
 	# POSITION
 	if STAFF_LANES.has(note_name):
 		position = Vector2(SPAWN_X, STAFF_LANES[note_name])
 	else:
-		printerr("Unknown duration: ", duration_beats)
+		printerr("Unknown note: ", note_name)
 
 
 

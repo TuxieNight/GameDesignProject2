@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bur3rwkqft5yv"
+path="res://.godot/imported/Classicals.de - Beethoven - Diabelli Variations, Op. 120 - 06 - Variation 5. Allegro vivace (C major).mp3-3826cb8ea80bde40326dfb602252d6c6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Classicals.de - Beethoven - Diabelli Variations, Op. 120 - 06 - Variation 5. Allegro vivace (C major).mp3"
+dest_files=["res://.godot/imported/Classicals.de - Beethoven - Diabelli Variations, Op. 120 - 06 - Variation 5. Allegro vivace (C major).mp3-3826cb8ea80bde40326dfb602252d6c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

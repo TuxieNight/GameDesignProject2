@@ -6,14 +6,14 @@ var playing_audio := false
 
 # Tracking the beat and song position
 var song_position = 0.0
-var song_position_in_beats = 1
+var song_position_in_beats = 0.0
 var sec_per_beat = 60.0 / bpm
-var last_reported_beat = 0
+var last_reported_beat = 0.0
 var beats_before_start = 0
 var current_measure = 1
 
 # Determining how close to the beat an event is
-var closest = 0
+var closest = 0.0
 var time_off_beat = 0.0
 
 signal beat(position)
@@ -24,7 +24,7 @@ func _ready():
 
 func _physics_process(delta):
 	song_position += delta
-	song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
+	song_position_in_beats = (song_position / sec_per_beat) + beats_before_start
 	_report_beat()
 
 func _report_beat():
@@ -44,7 +44,7 @@ func play_with_beat_offset(num):
 
 
 func closest_beat(nth):
-	closest = int(round((song_position / sec_per_beat) / nth) * nth) 
+	closest = round((song_position / sec_per_beat) / nth) * nth 
 	time_off_beat = abs(closest * sec_per_beat - song_position)
 	return Vector2(closest, time_off_beat)
 
