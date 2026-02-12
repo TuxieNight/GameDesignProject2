@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var beats_visible := 4.0
+@export var beats_visible := 8.0
 
 var max_health := 7
 var player_health := max_health

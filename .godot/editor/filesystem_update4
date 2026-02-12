@@ -4,3 +4,4 @@ res://Scripts/Bar.gd
 res://Scripts/Note.gd
 res://Scenes/Note.tscn
 res://Scripts/Conductor.gd
+res://Charts/song1.json
