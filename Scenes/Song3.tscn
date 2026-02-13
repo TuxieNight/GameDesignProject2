@@ -6,4 +6,4 @@
 
 [node name="Game" parent="." unique_id=897590322 instance=ExtResource("1_wwcm3")]
 chart_path = "res://Charts/classicalSong.json"
-next_scene_path = "uid://byer4aqjtaahi"
+next_scene_path = "uid://cc48cwq2r5602"

@@ -1,4 +1,10 @@
+res://Scenes/Game.tscn
+res://Charts/sonata.json
+res://Scenes/Song1.tscn
+res://Charts/fuerElise.json
+res://Scripts/Note.gd
+res://Charts/classicalSong.json
+res://Charts/lambSong.json
+res://Scenes/Song4.tscn
 res://Scenes/Song2.tscn
-res://Scripts/Menu.gd
-res://Scenes/Victory.tscn
-res://Scenes/Victory.gd
+res://Scripts/Game.gd

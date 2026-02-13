@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d1aom4j4o80rf" path="res://Scenes/Game.tscn" id="1_wef2t"]
 
-[node name="Zelda" type="Node2D" unique_id=612366555]
+[node name="Song2" type="Node2D" unique_id=612366555]
 
 [node name="Game" parent="." unique_id=897590322 instance=ExtResource("1_wef2t")]
-chart_path = "res://Charts/zelda.json"
+chart_path = "res://Charts/sonata.json"
 next_scene_path = "uid://ckn72i3ba7s0s"

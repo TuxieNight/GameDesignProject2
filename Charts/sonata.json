@@ -1,0 +1,55 @@
+{
+  "bpm": 80,
+  "offset": 0.0,
+  "time_signature": "4/4",
+
+  "notes": [
+	{ "beat": 1.0, "note": "C5", "duration": "eighth" },
+	{ "beat": 1.5, "note": "E5", "duration": "eighth" },
+	{ "beat": 2.0, "note": "G5", "duration": "eighth" },
+	{ "beat": 2.5, "note": "C6", "duration": "eighth" },
+	{ "beat": 3.0, "note": "G5", "duration": "eighth" },
+	{ "beat": 3.5, "note": "E5", "duration": "eighth" },
+	{ "beat": 4.0, "note": "C5", "duration": "quarter" },
+
+	{ "beat": 5.0, "note": "D5", "duration": "eighth" },
+	{ "beat": 5.5, "note": "F5", "duration": "eighth" },
+	{ "beat": 6.0, "note": "A5", "duration": "eighth" },
+	{ "beat": 6.5, "note": "D6", "duration": "eighth" },
+	{ "beat": 7.0, "note": "A5", "duration": "eighth" },
+	{ "beat": 7.5, "note": "F5", "duration": "eighth" },
+	{ "beat": 8.0, "note": "D5", "duration": "quarter" },
+
+	{ "beat": 9.0, "note": "E5", "duration": "eighth" },
+	{ "beat": 9.5, "note": "G5", "duration": "eighth" },
+	{ "beat": 10.0, "note": "C6", "duration": "eighth" },
+	{ "beat": 10.5, "note": "E6", "duration": "eighth" },
+	{ "beat": 11.0, "note": "C6", "duration": "eighth" },
+	{ "beat": 11.5, "note": "G5", "duration": "eighth" },
+	{ "beat": 12.0, "note": "E5", "duration": "quarter" },
+
+	{ "beat": 13.0, "note": "F5", "duration": "eighth" },
+	{ "beat": 13.5, "note": "A5", "duration": "eighth" },
+	{ "beat": 14.0, "note": "D6", "duration": "eighth" },
+	{ "beat": 14.5, "note": "F6", "duration": "eighth" },
+	{ "beat": 15.0, "note": "D6", "duration": "eighth" },
+	{ "beat": 15.5, "note": "A5", "duration": "eighth" },
+	{ "beat": 16.0, "note": "F5", "duration": "quarter" },
+
+	{ "beat": 17.0, "note": "E5", "duration": "eighth" },
+	{ "beat": 17.5, "note": "G5", "duration": "eighth" },
+	{ "beat": 18.0, "note": "C6", "duration": "eighth" },
+	{ "beat": 18.5, "note": "G5", "duration": "eighth" },
+	{ "beat": 19.0, "note": "E5", "duration": "eighth" },
+	{ "beat": 19.5, "note": "C5", "duration": "eighth" },
+	{ "beat": 20.0, "note": "G4", "duration": "quarter" },
+
+	{ "beat": 21.0, "note": "C5", "duration": "eighth" },
+	{ "beat": 21.5, "note": "E5", "duration": "eighth" },
+	{ "beat": 22.0, "note": "G5", "duration": "eighth" },
+	{ "beat": 22.5, "note": "C6", "duration": "eighth" },
+	{ "beat": 23.0, "note": "G5", "duration": "eighth" },
+	{ "beat": 23.5, "note": "E5", "duration": "eighth" },
+	{ "beat": 24.0, "note": "C5", "duration": "half" }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "bpm": 120,
   "offset": 0.0,
-  "time_signature": "3/4",
+  "time_signature": "6/8",
 
   "notes": [
 	{ "beat": 1.0,  "note": "B4",  "duration": "half" },
