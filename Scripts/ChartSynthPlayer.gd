@@ -30,7 +30,7 @@ func play():
 	is_playing = true
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !is_playing or chart_data == null:
 		return
 
@@ -39,19 +39,19 @@ func _physics_process(delta):
 	while next_index < chart_data["notes"].size():
 		var note = chart_data["notes"][next_index]
 		var beat = note["beat"]
-		var name = note["note"]
+		var name_name = note["note"]
 
 		var note_time = beat * sec_per_beat + offset
 
 		if song_time >= note_time:
-			_play_note_immediately(name)
+			_play_note_immediately(name_name)
 			next_index += 1
 		else:
 			break
 
 
-func _play_note_immediately(name: String):
-	var semitones := _note_to_semitones(name)
+func _play_note_immediately(name_name: String):
+	var semitones := _note_to_semitones(name_name)
 	var sample_data = _choose_sample(semitones)
 
 	var player := AudioStreamPlayer.new()

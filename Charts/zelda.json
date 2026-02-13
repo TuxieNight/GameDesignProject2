@@ -1,0 +1,52 @@
+{
+  "bpm": 120,
+  "offset": 0.0,
+  "time_signature": "3/4",
+
+  "notes": [
+	{ "beat": 1.0,  "note": "B4",  "duration": "half" },
+	{ "beat": 5.0,  "note": "D5",  "duration": "quarter" },
+	
+	{ "beat": 7.0,  "note": "A4",  "duration": "half" },
+	{ "beat": 11.0,  "note": "G4",  "duration": "eighth" },
+	{ "beat": 12.0,  "note": "A4",  "duration": "eighth" },
+	
+	{ "beat": 13.0,  "note": "B4",  "duration": "half" },
+	{ "beat": 17.0,  "note": "D5",  "duration": "quarter" },
+	
+	{ "beat": 19.0,  "note": "A4",  "duration": "half" },
+	
+	{ "beat": 25.0,  "note": "B4",  "duration": "half" },
+	{ "beat": 29.0,  "note": "D5",  "duration": "quarter" },
+	
+	{ "beat": 31.0,  "note": "A5",  "duration": "half" },
+	{ "beat": 35.0,  "note": "G5",  "duration": "quarter" },
+	
+	{ "beat": 37.0,  "note": "D5",  "duration": "half" },
+	{ "beat": 41.0,  "note": "C5",  "duration": "eighth" },
+	{ "beat": 42.0,  "note": "B4",  "duration": "eighth" },
+	
+	{ "beat": 43.0,  "note": "A4",  "duration": "half" },
+
+
+	{ "beat": 49.0,  "note": "B4",  "duration": "half" },
+	{ "beat": 53.0,  "note": "D5",  "duration": "quarter" },
+	
+	{ "beat": 55.0,  "note": "A4",  "duration": "half" },
+	{ "beat": 59.0,  "note": "G4",  "duration": "eighth" },
+	{ "beat": 60.0,  "note": "A4",  "duration": "eighth" },
+	
+	{ "beat": 61.0,  "note": "B4",  "duration": "half" },
+	{ "beat": 65.0,  "note": "D5",  "duration": "quarter" },
+	
+	{ "beat": 67.0,  "note": "A4",  "duration": "half" },
+	
+	{ "beat": 73.0,  "note": "B4",  "duration": "half" },
+	{ "beat": 77.0,  "note": "D5",  "duration": "quarter" },
+	
+	{ "beat": 79.0,  "note": "A5",  "duration": "half" },
+	{ "beat": 83.0,  "note": "G5",  "duration": "quarter" },
+	
+	{ "beat": 85.0,  "note": "D6",  "duration": "half" }
+  ]
+}

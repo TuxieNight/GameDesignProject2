@@ -12,7 +12,7 @@
 
 [node name="Game" type="Node2D" unique_id=897590322]
 script = ExtResource("6")
-chart_path = "res://Charts/lambSong.json"
+chart_path = "res://Charts/zelda.json"
 
 [node name="Label" type="Label" parent="." unique_id=2052336268]
 text = "0"

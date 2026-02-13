@@ -55,7 +55,7 @@ func _physics_process(_delta):
 			finish_hold()
 
 
-func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, song_time_at_spawn, beats_visible_val):
+func initialize(gameRef, note_name: String, duration_beats: float, sec_per_beat, spawn_time, beats_visible_val):
 	game = gameRef
 	beats_visible = beats_visible_val
 	note_time = spawn_time

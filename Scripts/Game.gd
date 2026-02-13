@@ -111,7 +111,6 @@ func _spawn_chart_note(lane, duration, note_time):
 		duration_beats,
 		sec_per_beat,
 		note_time,
-		song_time,
 		beats_visible
 	)
 
