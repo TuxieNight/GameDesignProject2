@@ -12,6 +12,8 @@ var sec_per_beat: float
 var is_playing := false
 var next_index := 0
 
+var song_end_time := 0.0   # <-- NEW
+
 
 func load_chart(path: String):
 	var file := FileAccess.open(path, FileAccess.READ)
@@ -24,6 +26,19 @@ func load_chart(path: String):
 	sec_per_beat = 60.0 / bpm
 
 	next_index = 0
+
+	# ---------------------------------------------------
+	# NEW: compute last note time
+	# ---------------------------------------------------
+	song_end_time = 0.0
+	for n in chart_data["notes"]:
+		var t = n["beat"] * sec_per_beat + offset
+		if t > song_end_time:
+			song_end_time = t
+
+
+func get_song_end_time() -> float:
+	return song_end_time
 
 
 func play():
@@ -39,19 +54,19 @@ func _physics_process(_delta):
 	while next_index < chart_data["notes"].size():
 		var note = chart_data["notes"][next_index]
 		var beat = note["beat"]
-		var name_name = note["note"]
+		var note_name = note["note"]
 
 		var note_time = beat * sec_per_beat + offset
 
 		if song_time >= note_time:
-			_play_note_immediately(name_name)
+			_play_note_immediately(note_name)
 			next_index += 1
 		else:
 			break
 
 
-func _play_note_immediately(name_name: String):
-	var semitones := _note_to_semitones(name_name)
+func _play_note_immediately(note_name: String):
+	var semitones := _note_to_semitones(note_name)
 	var sample_data = _choose_sample(semitones)
 
 	var player := AudioStreamPlayer.new()
@@ -61,7 +76,6 @@ func _play_note_immediately(name_name: String):
 	player.pitch_scale = pow(2.0, float(semitones - sample_data.offset) / 12.0)
 	player.play()
 
-	# cleanup
 	player.connect("finished", player.queue_free)
 
 

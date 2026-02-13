@@ -2,6 +2,7 @@ extends Node2D
 
 @export var beats_visible := 8.0
 @export_file("*.json") var chart_path: String
+@export_file("*.tscn") var next_scene_path: String
 
 var max_health := 7
 var player_health := max_health
@@ -25,6 +26,8 @@ var chart: ChartLoader
 var next_note
 var first_note_time: float
 
+var chart_end_time := 0.0   # <-- NEW
+
 var note_scene := load("res://Scenes/Note.tscn")
 
 @onready var synth := $ChartSynthPlayer
@@ -38,19 +41,19 @@ func _ready():
 	chart = ChartLoader.new()
 	chart.load_chart(chart_path)
 
-	# Give chart to synth
 	synth.load_chart(chart_path)
 
 	bpm = chart.bpm
 	sec_per_beat = 60.0 / bpm
 
-	# Start time BEFORE the first note reaches the bar
 	song_time = -beats_visible * sec_per_beat
 
 	next_note = chart.get_next_note()
 
 	var first = chart.notes[0]
 	first_note_time = first["beat"] * sec_per_beat + chart.offset
+
+	chart_end_time = synth.get_song_end_time()   # <-- NEW
 
 	$HeartContainer/Layout.initialize(max_health, player_health)
 
@@ -71,12 +74,10 @@ func _input(event):
 func _physics_process(delta):
 	song_time += delta
 
-	# Start audio exactly once
 	if !playing_audio and song_time >= first_note_time:
 		playing_audio = true
 		synth.play()
 
-	# Spawn notes
 	while next_note != null:
 		var beat = next_note["beat"]
 		var note_time = beat * sec_per_beat + chart.offset
@@ -95,6 +96,12 @@ func _physics_process(delta):
 			next_note = chart.get_next_note()
 		else:
 			break
+
+	# -----------------------------------------------------
+	# NEW: End game 4.5 seconds after chart is finished
+	# -----------------------------------------------------
+	if playing_audio and song_time >= chart_end_time + 4.5:
+		get_next_scene()
 
 
 # ---------------------------------------------------------
@@ -182,3 +189,6 @@ func apply_damage(amount):
 
 func game_over():
 	get_tree().change_scene_to_file("res://Scenes/End.tscn")
+	
+func get_next_scene():
+	get_tree().change_scene_to_file(next_scene_path)

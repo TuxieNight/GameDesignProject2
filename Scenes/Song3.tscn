@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ckn72i3ba7s0s"]
+
+[ext_resource type="PackedScene" uid="uid://d1aom4j4o80rf" path="res://Scenes/Game.tscn" id="1_wwcm3"]
+
+[node name="Song3" type="Node2D" unique_id=624806892]
+
+[node name="Game" parent="." unique_id=897590322 instance=ExtResource("1_wwcm3")]
+chart_path = "res://Charts/classicalSong.json"
+next_scene_path = "uid://byer4aqjtaahi"

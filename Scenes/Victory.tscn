@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://byer4aqjtaahi"]
+
+[ext_resource type="Script" uid="uid://btfxe5dkhi87n" path="res://Scripts/Menu.gd" id="1_13fhg"]
+[ext_resource type="PackedScene" uid="uid://cnb2nbepksohy" path="res://Scenes/Note.tscn" id="2_f6307"]
+[ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="3_ebubv"]
+
+[node name="Menu" type="Node2D" unique_id=805953146]
+script = ExtResource("1_13fhg")
+
+[node name="Info" type="Label" parent="." unique_id=232482931]
+offset_left = 90.0
+offset_top = 166.0
+offset_right = 1769.0
+offset_bottom = 371.0
+theme_override_colors/font_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+theme_override_colors/font_outline_color = Color(0.17842078, 0.013227871, 0.61232275, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "You Passed Your Music Test!"
+
+[node name="Title" type="Label" parent="." unique_id=106698575]
+offset_left = 340.0
+offset_top = 56.0
+offset_right = 2019.0
+offset_bottom = 261.0
+theme_override_colors/font_outline_color = Color(0.17842078, 0.013227871, 0.61232275, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 80
+text = "Yay!!!!!!!!!"
+
+[node name="Note" parent="." unique_id=974388935 instance=ExtResource("2_f6307")]
+position = Vector2(147, 576)
+script = null
+
+[node name="Note2" parent="." unique_id=606327908 instance=ExtResource("2_f6307")]
+position = Vector2(46, 481)
+script = null
+
+[node name="Note3" parent="." unique_id=644432472 instance=ExtResource("2_f6307")]
+position = Vector2(1025, 49)
+script = null
+
+[node name="Note4" parent="." unique_id=320232173 instance=ExtResource("2_f6307")]
+position = Vector2(1102, 100)
+script = null
+
+[node name="Player" parent="." unique_id=560582400 instance=ExtResource("3_ebubv")]
+position = Vector2(721, 451)
+scale = Vector2(0.5, 0.5)
+script = null
