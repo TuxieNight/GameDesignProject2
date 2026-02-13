@@ -1,13 +1,4 @@
-res://Scenes/Game.tscn
-res://Scripts/ChartSynthPlayer.gd
-res://Scripts/Game.gd
-res://Scripts/ChartLoader.gd
-res://Charts/zelda.json
-res://Scripts/Note.gd
-res://Scenes/Zelda.tscn
-res://Scenes/Victory.tscn
-res://Scenes/Menu.tscn
-res://Scripts/Menu.gd
 res://Scenes/Song2.tscn
-res://Scenes/Song1.tscn
-res://Scenes/Song3.tscn
+res://Scripts/Menu.gd
+res://Scenes/Victory.tscn
+res://Scenes/Victory.gd

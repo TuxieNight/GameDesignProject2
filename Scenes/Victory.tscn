@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://byer4aqjtaahi"]
 
-[ext_resource type="Script" uid="uid://btfxe5dkhi87n" path="res://Scripts/Menu.gd" id="1_13fhg"]
+[ext_resource type="Script" uid="uid://dvxb70vpm01pv" path="res://Scenes/Victory.gd" id="1_13fhg"]
 [ext_resource type="PackedScene" uid="uid://cnb2nbepksohy" path="res://Scenes/Note.tscn" id="2_f6307"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="3_ebubv"]
 
-[node name="Menu" type="Node2D" unique_id=805953146]
+[node name="Victory" type="Node2D" unique_id=805953146]
 script = ExtResource("1_13fhg")
 
 [node name="Info" type="Label" parent="." unique_id=232482931]
