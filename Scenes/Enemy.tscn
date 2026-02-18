@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bo0k2vgkjaifw"]
-
-[ext_resource type="Texture2D" uid="uid://d2iwnbl2jyulg" path="res://Sprites/ourArt/enemy.webp" id="1_m1htj"]
-
-[node name="Enemy" type="Sprite2D" unique_id=951707960]
-texture = ExtResource("1_m1htj")

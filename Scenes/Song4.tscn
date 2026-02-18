@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://cc48cwq2r5602"]
 
 [ext_resource type="PackedScene" uid="uid://d1aom4j4o80rf" path="res://Scenes/Game.tscn" id="1_xjxco"]
+[ext_resource type="Texture2D" uid="uid://dr7sqrlpq00qf" path="res://Sprites/ourArt/axolotl.webp" id="2_njc5w"]
 
 [node name="Song4" type="Node2D" unique_id=120750164]
 
 [node name="Game" parent="." unique_id=897590322 instance=ExtResource("1_xjxco")]
 chart_path = "res://Charts/sonata.json"
 next_scene_path = "uid://byer4aqjtaahi"
+
+[node name="Teacher" parent="Game" index="4" unique_id=951707960]
+position = Vector2(969, 446.00003)
+texture = ExtResource("2_njc5w")
+
+[editable path="Game"]
+[editable path="Game/PlayableSheet"]

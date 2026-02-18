@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bo0k2vgkjaifw"]
+
+[ext_resource type="Texture2D" uid="uid://dkaxmkuoobfne" path="res://Sprites/ourArt/sheep.webp" id="1_v7xaw"]
+
+[node name="Teacher" type="Sprite2D" unique_id=951707960]
+texture = ExtResource("1_v7xaw")

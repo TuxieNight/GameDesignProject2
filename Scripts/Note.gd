@@ -128,8 +128,6 @@ func initialize(
 
 	# POSITION (original)
 	var lane_y = STAFF_LANES[_normalize(note_name)]
-	var time_until_hit = note_time - game.song_time
-	var true_spawn_x = TARGET_X + time_until_hit * speed
 	
 	# LANE OFFSET PER NOTE (purely visual spacing)
 	var lane_offset_amount := 1000.0   # tweak this visually

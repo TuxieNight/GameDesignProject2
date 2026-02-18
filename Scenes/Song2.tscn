@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://bu28shk7qoqqd"]
 
 [ext_resource type="PackedScene" uid="uid://d1aom4j4o80rf" path="res://Scenes/Game.tscn" id="1_wef2t"]
+[ext_resource type="Texture2D" uid="uid://dup87q4xhubdv" path="res://Sprites/ourArt/tiger.webp" id="2_kljuv"]
 
 [node name="Song2" type="Node2D" unique_id=612366555]
 
 [node name="Game" parent="." unique_id=897590322 instance=ExtResource("1_wef2t")]
 chart_path = "res://Charts/classicalSong.json"
 next_scene_path = "uid://ckn72i3ba7s0s"
+
+[node name="Teacher" parent="Game" index="4" unique_id=951707960]
+position = Vector2(961, 436.00003)
+texture = ExtResource("2_kljuv")
+
+[editable path="Game"]
+[editable path="Game/PlayableSheet"]

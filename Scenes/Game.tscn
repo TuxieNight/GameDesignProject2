@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://jpf77fgf1tvd" path="res://Sounds/C4.wav" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="8_2irst"]
 [ext_resource type="Script" uid="uid://dcw87553mbbm1" path="res://Scripts/ChartSynthPlayer.gd" id="8_71axn"]
-[ext_resource type="PackedScene" uid="uid://bo0k2vgkjaifw" path="res://Scenes/Enemy.tscn" id="8_bf53h"]
+[ext_resource type="PackedScene" uid="uid://bo0k2vgkjaifw" path="res://Scenes/Teacher.tscn" id="8_bf53h"]
 [ext_resource type="AudioStream" uid="uid://c488r88kdurjo" path="res://Sounds/C5.wav" id="9_71axn"]
 [ext_resource type="PackedScene" uid="uid://sf6g6xev5qy0" path="res://Scenes/PlayableSheet.tscn" id="9_bf53h"]
 
@@ -34,7 +34,7 @@ offset_top = 64.0
 offset_right = 83.0
 offset_bottom = 64.0
 
-[node name="Enemy" parent="." unique_id=951707960 instance=ExtResource("8_bf53h")]
+[node name="Teacher" parent="." unique_id=951707960 instance=ExtResource("8_bf53h")]
 z_index = 1
 position = Vector2(961.00006, 467.00003)
 scale = Vector2(0.545, 0.545)
