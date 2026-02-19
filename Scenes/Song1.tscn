@@ -7,3 +7,6 @@
 [node name="Game" parent="." unique_id=897590322 instance=ExtResource("1_1u6hh")]
 chart_path = "res://Charts/lambSong.json"
 next_scene_path = "uid://bu28shk7qoqqd"
+
+[editable path="Game"]
+[editable path="Game/PlayableSheet"]

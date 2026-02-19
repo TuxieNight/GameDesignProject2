@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://byer4aqjtaahi"]
 
-[ext_resource type="Script" uid="uid://dvxb70vpm01pv" path="res://Scenes/Victory.gd" id="1_13fhg"]
+[ext_resource type="Script" uid="uid://dvxb70vpm01pv" path="res://Scripts/Victory.gd" id="1_13fhg"]
 [ext_resource type="PackedScene" uid="uid://cnb2nbepksohy" path="res://Scenes/Note.tscn" id="2_f6307"]
 [ext_resource type="PackedScene" uid="uid://biu6vahw6bwla" path="res://Scenes/Player.tscn" id="3_ebubv"]
+[ext_resource type="Texture2D" uid="uid://np4n33vg5od4" path="res://Sprites/ourArt/successScreen.webp" id="4_f6307"]
 
 [node name="Victory" type="Node2D" unique_id=805953146]
 script = ExtResource("1_13fhg")
 
 [node name="Info" type="Label" parent="." unique_id=232482931]
-offset_left = 90.0
-offset_top = 166.0
-offset_right = 1769.0
-offset_bottom = 371.0
+offset_left = 16.0
+offset_top = 126.0
+offset_right = 1695.0
+offset_bottom = 331.0
 theme_override_colors/font_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
 theme_override_colors/font_outline_color = Color(0.17842078, 0.013227871, 0.61232275, 1)
 theme_override_constants/outline_size = 10
@@ -19,32 +20,43 @@ theme_override_font_sizes/font_size = 60
 text = "You Passed Your Music Test!"
 
 [node name="Title" type="Label" parent="." unique_id=106698575]
-offset_left = 340.0
-offset_top = 56.0
-offset_right = 2019.0
-offset_bottom = 261.0
+offset_left = 146.0
+offset_top = 20.0
+offset_right = 1825.0
+offset_bottom = 225.0
 theme_override_colors/font_outline_color = Color(0.17842078, 0.013227871, 0.61232275, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 80
 text = "Yay!!!!!!!!!"
 
 [node name="Note" parent="." unique_id=974388935 instance=ExtResource("2_f6307")]
+visible = false
 position = Vector2(147, 576)
 script = null
 
 [node name="Note2" parent="." unique_id=606327908 instance=ExtResource("2_f6307")]
+visible = false
 position = Vector2(46, 481)
 script = null
 
 [node name="Note3" parent="." unique_id=644432472 instance=ExtResource("2_f6307")]
+visible = false
 position = Vector2(1025, 49)
 script = null
 
 [node name="Note4" parent="." unique_id=320232173 instance=ExtResource("2_f6307")]
+visible = false
 position = Vector2(1102, 100)
 script = null
 
 [node name="Player" parent="." unique_id=560582400 instance=ExtResource("3_ebubv")]
+visible = false
 position = Vector2(721, 451)
 scale = Vector2(0.5, 0.5)
 script = null
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1260158692]
+z_index = -1
+position = Vector2(577.00006, 325)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("4_f6307")

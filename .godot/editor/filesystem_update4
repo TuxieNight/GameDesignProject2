@@ -1,7 +1,3 @@
-res://Scenes/Game.tscn
-res://Scenes/Song4.tscn
+res://Scenes/Victory.tscn
 res://Scenes/Menu.tscn
-res://Scenes/Song2.tscn
-res://Scenes/Song3.tscn
-res://Scenes/End.tscn
-res://Scripts/Note.gd
+res://Scenes/Song1.tscn
