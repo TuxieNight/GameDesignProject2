@@ -1,3 +1,3 @@
 res://Scenes/Victory.tscn
-res://Scenes/Menu.tscn
-res://Scenes/Song1.tscn
+res://Scripts/Note.gd
+res://Scenes/Note.tscn

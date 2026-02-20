@@ -67,9 +67,13 @@ func _normalize(note_name: String) -> String:
 	return letter + octave
 
 func _accidental(note_name: String) -> String:
+	$Accidental.add_theme_font_override(
+	"font",
+	preload("res://fonts/NotoSans-VariableFont_wdth,wght.ttf"))
+	
 	var letter := note_name.rstrip("0123456789")
-	if letter.ends_with("#"): return "♯"
-	if letter.ends_with("b"): return "♭"
+	if letter.ends_with("#"): return "\u266F"
+	if letter.ends_with("b"): return "\u266D"
 	return ""
 
 
