@@ -12,11 +12,11 @@ res://Scenes/Global.tscn::b1f4756aced05b46d864cae30636dca3::1770740702::res://.g
 res://Scenes/Heart.tscn::074467d5b0328557623501d8c7b1f342::1770850547::res://.godot/exported/133200997/export-7f4f522e02a9176a3b16fbcb057aa391-Heart.scn
 res://Scenes/HeartContainer.tscn::a94762f68a65ead09a9c486cbe69f32c::1770850585::res://.godot/exported/133200997/export-dca72e6eae470cdf98af442fd9723e30-HeartContainer.scn
 res://Scenes/Menu.tscn::d74ab536be20d682a926dcd849937a8d::1771530802::res://.godot/exported/133200997/export-c66ca9adccb575bddabad42984d7fed5-Menu.scn
-res://Scenes/Note.tscn::e0c9af21418df52622358cbb04d15afb::1771552796::res://.godot/exported/133200997/export-da987382b8c50fef8f883365c92a3ae5-Note.scn
+res://Scenes/Note.tscn::a049a305b607deb2e38afc6c0935d43a::1771553721::res://.godot/exported/133200997/export-da987382b8c50fef8f883365c92a3ae5-Note.scn
 res://Scenes/PlayableSheet.tscn::05d0cbfe250837cfb5feacb3d3037bc0::1770954793::res://.godot/exported/133200997/export-38523a5f7b13f39b8e5b58301caa47bc-PlayableSheet.scn
 res://Scenes/Player.tscn::d31d6b4804a92beb83fbf46ab5fb1bc8::1770859892::res://.godot/exported/133200997/export-a7209d3b864edc0146622aad500fa2c1-Player.scn
 res://Scenes/Sheet.tscn::c6df8e2daf6098749e42321063a396ed::1770823244::res://.godot/exported/133200997/export-44e0202c8d982814bab0a57f28afe8e4-Sheet.scn
-res://Scenes/Song1.tscn::fdc0871a4fb9d4970e3521e0ef304f6c::1771530819::res://.godot/exported/133200997/export-60957832d8c5475840b1734e47c284ed-Song1.scn
+res://Scenes/Song1.tscn::fdc0871a4fb9d4970e3521e0ef304f6c::1771553784::res://.godot/exported/133200997/export-60957832d8c5475840b1734e47c284ed-Song1.scn
 res://Scenes/Song2.tscn::667e28ca08e269936ef4955e583eed98::1771452181::res://.godot/exported/133200997/export-b962a8a575fbdd664b3e1b6feec468a1-Song2.scn
 res://Scenes/Song3.tscn::86101d4e153ea729287b353edb584edc::1771452181::res://.godot/exported/133200997/export-372355d128b7571fac87f65f0ba55476-Song3.scn
 res://Scenes/Song4.tscn::a67e38bd1694462ae1154031db1a06a8::1771452056::res://.godot/exported/133200997/export-e4b11aa5d28782d7aad524a65830b162-Song4.scn
